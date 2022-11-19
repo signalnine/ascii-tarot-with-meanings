@@ -3,23 +3,58 @@
 const inquirer = require('inquirer');
 const cards = require('./cards');
 const CliFrames = require('cli-frames');
+const os = require('os');
+const reverseOdds = 20; //odds of a reverse are 1 in 20
 
-const asciiloader = [ '*', '*:', '*:･', '*:･ﾟ', '*:･ﾟ✧', '*:･ﾟ✧*', '*:･ﾟ✧*:', '*:･ﾟ✧*:･', '*:･ﾟ✧*:･ﾟ', '*:･ﾟ✧*:･ﾟ✧' ]
 
-const loader = new CliFrames();
-loader.load(asciiloader);
 
-const { deck } = cards;
+//const asciiloader = [ '*', '*:', '*:･', '*:･ﾟ', '*:･ﾟ✧', '*:･ﾟ✧*', '*:･ﾟ✧*:', '*:･ﾟ✧*:･', '*:･ﾟ✧*:･ﾟ', '*:･ﾟ✧*:･ﾟ✧' ];
 
-const greeting = `
-.------.                              .------.
-| .--. | ┌─┐┌─┐┌─┐┬┬  ┌┬┐┌─┐┬─┐┌─┐┌┬┐ | .--. | 
-| :/\\\: | ├─┤└─┐│  ││───│ ├─┤├┬┘│ │ │  | :/\\\: |
-| :\\\/: | ┴ ┴└─┘└─┘┴┴   ┴ ┴ ┴┴└─└─┘ ┴  | :\\\/: |
-| '--' |                              | '--' |
-\`------'                              \`------'
-`;
-console.log(greeting);
+
+
+
+/**
+ * Returns a hash code from a string
+ * @param  {String} str The string to hash.
+ * @return {Number}    A 32bit integer
+ * @see http://werxltd.com/wp/2010/05/13/javascript-implementation-of-javas-string-hashcode-method/
+ */
+function hashCode(str) {
+    let hash = 0;
+    for (let i = 0, len = str.length; i < len; i++) {
+        let chr = str.charCodeAt(i);
+        hash = (hash << 5) - hash + chr;
+        hash |= 0; // Convert to 32bit integer
+    }
+    return hash;
+}
+
+const {deck}  = cards;
+
+var saltyBoy = "42069";
+var today = (new Date()).toString().split(' ').splice(1,3).join(' ');
+var user = `${os.userInfo().username}`;
+var hashval = today + user + saltyBoy;
+var rawHash = hashCode(hashval);
+var t = Math.abs(rawHash % deck.length);
+var reverseChk = Math.abs(rawHash % reverseOdds);
+var isReversed = (reverseChk == 0) ? true : false;
+var reverseStr = (isReversed) ? " REVERSED " : "";
+
+
+//const loader = new CliFrames();
+//loader.load(asciiloader);
+
+console.log("【☆】★【☆】★【☆】★【☆】★【☆】★【☆】★【☆】★【☆】★【☆] \n");
+//console.log(`hashval = ${t}`);
+console.log(`Today's tarot draw for ${user} is ....`);
+console.log(`\n【☆】★  ${reverseStr} ${deck[t].name} ★【☆】`);
+if (isReversed) {console.log(`${deck[t].reversed}`)} else { console.log(`${deck[t].card}\n`)};
+if (isReversed) {console.log(`Meaning: ${deck[t].rdesc}`)} else {console.log(`Meaning: ${deck[t].desc}\n`)};
+if (deck[t].cbd_desc != '') {console.log(`Description: ${deck[x].cbd_desc}\n`)};
+console.log("【☆】★【☆】★【☆】★【☆】★【☆】★【☆】★【☆】★【☆】★【☆]");
+
+/*
 
 const pickspread = [
     {
@@ -161,4 +196,4 @@ function run() {
     });
 }
 
-run();
+run(); */

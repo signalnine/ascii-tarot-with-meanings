@@ -1,12 +1,37 @@
 #!/usr/bin/env node
 
-const inquirer = require('inquirer');
+//const inquirer = require('inquirer');
 const cards = require('./cards');
-const CliFrames = require('cli-frames');
+//const CliFrames = require('cli-frames');
 const os = require('os');
-const reverseOdds = 20; //odds of a reverse are 1 in 20
+const yargs = require('yargs');
+const reverseOdds = 5; //odds of a reverse between 0 and 100
 
 
+const argv = yargs
+  .option('random', {
+    alias: 'r',
+    description: 'Use random instead of user/date',
+    type: 'boolean',
+    default: false
+  })
+  .option('reverse_odds', {
+    alias: 'o',
+    description: 'Odds of a reversed card',
+    type: 'number'
+  })
+  .help()
+  .alias('help', 'h').argv;
+
+if (argv.reverse_odds){
+    if (argv.reverse_odds < 0){
+        reverseOdds = 0
+    } else if (argv.reverse_odds >= 100){
+        reverseOdds = 100
+    } else {
+        reverseOdds = argv.reverse_odd
+    };
+}
 
 //const asciiloader = [ '*', '*:', '*:･', '*:･ﾟ', '*:･ﾟ✧', '*:･ﾟ✧*', '*:･ﾟ✧*:', '*:･ﾟ✧*:･', '*:･ﾟ✧*:･ﾟ', '*:･ﾟ✧*:･ﾟ✧' ];
 
@@ -31,28 +56,45 @@ function hashCode(str) {
 
 const {deck}  = cards;
 
-var saltyBoy = "42069";
+var salt = "butdtqqffs22";
+var reverseStr = '';
+var isReversed = false;
+var hashval = today + user + salt;
+var rawHash = hashCode(hashval);
 var today = (new Date()).toString().split(' ').splice(1,3).join(' ');
 var user = `${os.userInfo().username}`;
-var hashval = today + user + saltyBoy;
-var rawHash = hashCode(hashval);
-var t = Math.abs(rawHash % deck.length);
-var reverseChk = Math.abs(rawHash % reverseOdds);
-var isReversed = (reverseChk == 0) ? true : false;
-var reverseStr = (isReversed) ? " REVERSED " : "";
+var t = 0;
+if (argv.random){
+    rawHash = Math.abs(Math.floor(Math.random() * 1000000));
+}
+
+t = Math.abs(rawHash) % deck.length;
+
+console.log(`t = ${t}`);
+
+if (reverseOdds > 0 && reverseOdds < 100){
+    var reverseChk = Math.abs(rawHash) % 100;
+    isReversed = (reverseChk <= reverseOdds) ? true : false;
+    reverseStr = (isReversed) ? "reversed" : "";
+} else if (reverseOdds >= 100) {
+    isReversed = true;
+    reverseStr = "reversed";
+} else {
+    isReversed = true;
+}
 
 
 //const loader = new CliFrames();
 //loader.load(asciiloader);
 
-console.log("【☆】★【☆】★【☆】★【☆】★【☆】★【☆】★【☆】★【☆】★【☆] \n");
+console.log(`【☆】★【☆】★【☆】★【☆】★【☆】★【☆】★【☆】★【☆】★【☆】 \n`);
 //console.log(`hashval = ${t}`);
 console.log(`Today's tarot draw for ${user} is ....`);
-console.log(`\n【☆】★  ${reverseStr} ${deck[t].name} ★【☆】`);
+console.log(`\n     【☆】${reverseStr} ${deck[t].name}【☆】`);
 if (isReversed) {console.log(`${deck[t].reversed}`)} else { console.log(`${deck[t].card}\n`)};
 if (isReversed) {console.log(`Meaning: ${deck[t].rdesc}`)} else {console.log(`Meaning: ${deck[t].desc}\n`)};
-if (deck[t].cbd_desc != '') {console.log(`Description: ${deck[x].cbd_desc}\n`)};
-console.log("【☆】★【☆】★【☆】★【☆】★【☆】★【☆】★【☆】★【☆】★【☆]");
+if (deck[t].cbd_desc != '') {console.log(`Description: ${deck[t].cbd_desc}\n`)};
+console.log(`【☆】★【☆】★【☆】★【☆】★【☆】★【☆】★【☆】★【☆】★【☆】`);
 
 /*
 

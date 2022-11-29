@@ -24,6 +24,7 @@
     "dependencies": {
         "cli-frames": "^2.2.9",
         "inquirer": "^7.3.3",
-        "json-6": "^1.1.4"
+        "json-6": "^1.1.4",
+        "yargs": "^17.6.2"
     }
 }

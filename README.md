@@ -155,7 +155,7 @@ Each system offers unique insights - you can stick with one or explore all persp
 - No external dependencies required
 
 ### Semantic Search (Optional)
-To use the AI-powered semantic search features:
+To use the semantic search features:
 
 ```bash
 pip install -r requirements.txt

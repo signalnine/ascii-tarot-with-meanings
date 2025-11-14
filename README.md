@@ -1,6 +1,6 @@
-# ASCII Tarot Reader
+# Semantic Tarot
 
-A tarot reading application featuring beautiful ASCII art cards with detailed interpretations and semantic search capabilities.
+A tarot reading application featuring beautiful ASCII art cards with several systems of interpretations and semantic search capabilities.
 
 <img src='cards.gif' />
 

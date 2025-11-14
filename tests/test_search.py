@@ -225,14 +225,18 @@ class TestEmbeddingQuality:
             pytest.skip("Embeddings file not generated yet")
 
         # The Fool and The Magician are sequential in Major Arcana
-        # They should have some similarity
+        # They should have some similarity (using combined system)
         fool_embedding = None
         magician_embedding = None
 
         for entry in embeddings_data:
-            if entry['card_name'] == 'The Fool' and entry['position'] == 'upright':
+            if (entry['card_name'] == 'The Fool' and
+                entry['position'] == 'upright' and
+                entry.get('interpretation_system', 'combined') == 'combined'):
                 fool_embedding = entry['embedding']
-            if entry['card_name'] == 'The Magician' and entry['position'] == 'upright':
+            if (entry['card_name'] == 'The Magician' and
+                entry['position'] == 'upright' and
+                entry.get('interpretation_system', 'combined') == 'combined'):
                 magician_embedding = entry['embedding']
 
         if fool_embedding and magician_embedding:
@@ -245,12 +249,13 @@ class TestEmbeddingQuality:
         if embeddings_data is None:
             pytest.skip("Embeddings file not generated yet")
 
-        # Get The Fool upright and reversed
+        # Get The Fool upright and reversed (using combined system)
         fool_upright = None
         fool_reversed = None
 
         for entry in embeddings_data:
-            if entry['card_name'] == 'The Fool':
+            if (entry['card_name'] == 'The Fool' and
+                entry.get('interpretation_system', 'combined') == 'combined'):
                 if entry['position'] == 'upright':
                     fool_upright = entry['embedding']
                 elif entry['position'] == 'reversed':
@@ -261,3 +266,52 @@ class TestEmbeddingQuality:
             # They should be similar but not identical
             assert 0.3 < similarity < 0.99, \
                 f"Upright and reversed should be related but distinct, got {similarity}"
+
+
+class TestSystemFiltering:
+    """Test interpretation system filtering"""
+
+    def test_find_similar_with_system_filter(self, embeddings_data):
+        """Should find similar cards within specific interpretation system"""
+        if embeddings_data is None:
+            pytest.skip("Embeddings file not generated yet")
+
+        # Test with traditional system
+        results_trad = find_similar_cards(
+            card_name="The Fool",
+            position="upright",
+            embeddings_data=embeddings_data,
+            top_k=5,
+            system_filter="rws_traditional"
+        )
+
+        assert len(results_trad) == 5, f"Expected 5 results, got {len(results_trad)}"
+
+        # Test with Crowley system
+        results_crowley = find_similar_cards(
+            card_name="The Fool",
+            position="upright",
+            embeddings_data=embeddings_data,
+            top_k=5,
+            system_filter="thoth_crowley"
+        )
+
+        assert len(results_crowley) == 5, f"Expected 5 results, got {len(results_crowley)}"
+
+        # Results should potentially differ between systems
+        # (though not guaranteed - just checking they both work)
+
+    def test_find_similar_combined_system(self, embeddings_data):
+        """Should work with combined system (default)"""
+        if embeddings_data is None:
+            pytest.skip("Embeddings file not generated yet")
+
+        results = find_similar_cards(
+            card_name="The Fool",
+            position="upright",
+            embeddings_data=embeddings_data,
+            top_k=5,
+            system_filter="combined"
+        )
+
+        assert len(results) == 5, f"Expected 5 results, got {len(results)}"

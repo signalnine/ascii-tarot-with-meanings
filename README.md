@@ -58,8 +58,10 @@ Choose from **four different tarot interpretation traditions** for **all 78 card
 - **Filter by Arcana** - View only Major or Minor Arcana cards
 
 ### 🔮 Semantic Search with Vector Embeddings (New!)
-- **Vector Embeddings** - Each card has embeddings generated from all 4 interpretation systems
+- **Vector Embeddings** - Each card has 10 embeddings (2 positions × 5 systems)
+- **Per-System Embeddings** - Separate embeddings for each interpretation system (Traditional, Crowley, Jungian, Modern, Combined)
 - **Semantic Search** - Find cards by theme, concept, or feeling (e.g., "new beginnings", "letting go")
+- **System Filtering** - Search within a specific tarot tradition or across all traditions
 - **Similar Cards** - Discover cards related to any card in the deck
 - **Multiple Output Formats** - Get results as human-readable text, JSON, or YAML
 - **Command-Line Interface** - Scriptable and integrable with other tools
@@ -98,11 +100,15 @@ python3 search_cards.py "new beginnings"
 # Find cards similar to The Fool
 python3 search_cards.py --similar "The Fool"
 
-# Get results in JSON format
-python3 search_cards.py "transformation" --json
+# Search within a specific interpretation system
+python3 search_cards.py "shadow work" --system jungian_psychological
 
-# Get multiple results
-python3 search_cards.py "love and relationships" --top 5 --yaml
+# Get results in JSON format
+python3 search_cards.py "transformation" --json --top 3
+
+# Compare systems
+python3 search_cards.py "new beginnings" --system rws_traditional
+python3 search_cards.py "new beginnings" --system thoth_crowley
 ```
 
 See [EMBEDDINGS.md](EMBEDDINGS.md) for complete documentation.
@@ -112,7 +118,7 @@ See [EMBEDDINGS.md](EMBEDDINGS.md) for complete documentation.
 The application uses:
 - `cards.json` - Complete tarot deck data with ASCII art (78 cards)
 - `interpretations.json` - Multiple interpretation system database (all 78 cards: 22 Major + 56 Minor Arcana)
-- `card_embeddings.json` - Vector embeddings for semantic search (156 embeddings: 78 cards × 2 positions)
+- `card_embeddings.json` - Vector embeddings for semantic search (780 embeddings: 78 cards × 2 positions × 5 systems)
 - `reading_history.json` - Your saved readings (auto-generated)
 - `daily_card.json` - Daily card persistence (auto-generated)
 

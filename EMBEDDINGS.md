@@ -8,10 +8,13 @@ Vector embeddings allow you to:
 - Search for cards by theme, concept, or feeling (e.g., "new beginnings", "letting go")
 - Find cards semantically similar to a given card
 - Discover thematic relationships between cards
+- Filter searches by interpretation system (Traditional, Crowley, Jungian, Modern)
 
-Each card has **two embeddings** (upright and reversed) that include:
-- Card name and basic meanings
-- All 4 interpretation systems (Traditional, Crowley/Thoth, Jungian, Modern)
+Each card has **10 embeddings** (2 positions × 5 systems):
+- Separate embeddings for upright and reversed positions
+- Separate embeddings for each of the 4 interpretation systems
+- A combined embedding that includes all systems together
+- This allows you to search within a specific tarot tradition or across all traditions
 
 ## Setup
 
@@ -36,11 +39,19 @@ python generate_embeddings.py
 ```
 
 This will:
-- Process all 78 tarot cards (156 embeddings total: upright + reversed)
+- Process all 78 tarot cards (780 embeddings total: 78 cards × 2 positions × 5 systems)
+- Create embeddings for each of the 4 interpretation systems plus a combined version
 - Create embeddings using OpenAI's `text-embedding-3-small` model
 - Save results to `card_embeddings.json`
 
-**Note:** This will make API calls to OpenAI and will incur costs (approximately $0.01-0.02 total).
+**Interpretation Systems:**
+- `rws_traditional` - Rider-Waite-Smith (Traditional)
+- `thoth_crowley` - Thoth/Crowley (Esoteric)
+- `jungian_psychological` - Jungian/Psychological (Archetypes)
+- `modern_intuitive` - Modern/Intuitive (Contemporary)
+- `combined` - All systems combined (default)
+
+**Note:** This will make API calls to OpenAI and will incur costs (approximately $0.05-0.10 total).
 
 ## Usage
 
@@ -129,6 +140,34 @@ python3 search_cards.py --similar "The Star" --reversed --yaml
   meaning: Radical change, resurrection to a new life...
 ```
 
+#### System Filtering
+
+Filter results by interpretation system:
+
+```bash
+# Search within Traditional (RWS) system only
+python3 search_cards.py "new beginnings" --system rws_traditional
+
+# Find similar cards using Crowley/Thoth interpretations
+python3 search_cards.py --similar "The Fool" --system thoth_crowley
+
+# Search within Jungian/psychological framework
+python3 search_cards.py "shadow work" --system jungian_psychological --top 3
+
+# Modern/intuitive system
+python3 search_cards.py "personal growth" --system modern_intuitive
+
+# Combined system (default - uses all interpretations)
+python3 search_cards.py "transformation" --system combined
+```
+
+**Available Systems:**
+- `rws_traditional` - Rider-Waite-Smith (Traditional)
+- `thoth_crowley` - Thoth/Crowley (Esoteric)
+- `jungian_psychological` - Jungian/Psychological (Archetypes)
+- `modern_intuitive` - Modern/Intuitive (Contemporary)
+- `combined` - All systems combined (default)
+
 #### Options
 
 ```bash
@@ -140,6 +179,9 @@ Options:
   --reversed, -r        Use reversed position (for --similar mode)
   --include-same-card   Include same card in opposite position in similar results
   --top N, -k N         Number of results to return (default: 1)
+  --system SYSTEM       Filter by interpretation system (default: combined)
+                        Choices: rws_traditional, thoth_crowley, jungian_psychological,
+                                modern_intuitive, combined
   --json                Output results in JSON format
   --yaml                Output results in YAML format
   --interactive, -i     Launch interactive search mode
@@ -222,16 +264,31 @@ python3 search_cards.py "peace" --yaml > peace.yaml
 # Compare what cards appear for opposite states
 ```
 
-### Example 5: Building a Custom Application
+### Example 5: Comparing Interpretation Systems
+
+```bash
+# Find cards related to "shadow" in Jungian framework
+python3 search_cards.py "shadow self" --system jungian_psychological --top 3
+
+# Compare with Traditional interpretation
+python3 search_cards.py "shadow self" --system rws_traditional --top 3
+
+# See how Crowley/Thoth system interprets the same theme
+python3 search_cards.py "shadow self" --system thoth_crowley --top 3
+
+# Different systems may emphasize different cards for the same concept
+```
+
+### Example 6: Building a Custom Application
 
 ```python
 import json
 import subprocess
 
-def get_card_for_theme(theme):
+def get_card_for_theme(theme, system='combined'):
     """Get the top card for a given theme"""
     result = subprocess.run(
-        ['python3', 'search_cards.py', theme, '--json'],
+        ['python3', 'search_cards.py', theme, '--json', '--system', system],
         capture_output=True,
         text=True
     )
@@ -239,7 +296,7 @@ def get_card_for_theme(theme):
     return cards[0] if cards else None
 
 # Use in your application
-card = get_card_for_theme("new beginnings")
+card = get_card_for_theme("new beginnings", system='jungian_psychological')
 print(f"Card: {card['card_name']} ({card['position']})")
 print(f"Meaning: {card['meaning']}")
 print(f"Similarity: {card['similarity']:.2f}")
@@ -264,10 +321,15 @@ Each embedding in `card_embeddings.json` contains:
 {
   "card_name": "The Fool",
   "position": "upright",
+  "interpretation_system": "combined",
   "text": "Combined text used for embedding...",
   "embedding": [0.123, -0.456, ...]
 }
 ```
+
+The file contains 780 embeddings total:
+- 78 cards × 2 positions (upright/reversed) × 5 systems = 780 embeddings
+- Systems: `rws_traditional`, `thoth_crowley`, `jungian_psychological`, `modern_intuitive`, `combined`
 
 ## Files
 

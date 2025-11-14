@@ -5,7 +5,7 @@ Tests for tarot card embeddings generation and structure.
 import json
 import pytest
 import os
-from generate_embeddings import create_card_text, load_data
+from generate_embeddings import create_card_text, create_card_text_for_system, load_data
 
 
 @pytest.fixture
@@ -85,6 +85,32 @@ class TestEmbeddingGeneration:
         assert 'Fake Card' in text
         assert 'Fake description' in text
 
+    def test_create_card_text_for_specific_system(self, cards_data, interpretations_data):
+        """Should create text for specific interpretation system"""
+        card = cards_data[0]  # The Fool
+
+        # Test traditional system
+        text_trad = create_card_text_for_system(card, interpretations_data, 'upright', 'rws_traditional')
+        assert card['name'] in text_trad
+        assert 'upright' in text_trad.lower()
+
+        # Should only include one interpretation (the traditional one)
+        # Not all four like the combined version
+        assert 'Interpretation:' in text_trad
+
+    def test_create_card_text_for_combined_system(self, cards_data, interpretations_data):
+        """Should create text with all systems for combined"""
+        card = cards_data[0]  # The Fool
+
+        # Test combined (system=None)
+        text_combined = create_card_text_for_system(card, interpretations_data, 'upright', None)
+
+        # Should include all systems
+        assert 'Traditional interpretation' in text_combined or 'rws_traditional' in text_combined.lower()
+        assert 'Crowley' in text_combined or 'Thoth' in text_combined
+        assert 'Jungian' in text_combined or 'psychological' in text_combined.lower()
+        assert 'Modern' in text_combined or 'intuitive' in text_combined.lower()
+
 
 class TestEmbeddingsFile:
     """Test embeddings file structure if it exists"""
@@ -97,22 +123,22 @@ class TestEmbeddingsFile:
         # Should be a list
         assert isinstance(embeddings_data, list), "Embeddings should be a list"
 
-        # Should have 156 embeddings (78 cards × 2 positions)
-        assert len(embeddings_data) == 156, f"Expected 156 embeddings, found {len(embeddings_data)}"
+        # Should have 780 embeddings (78 cards × 2 positions × 5 systems)
+        assert len(embeddings_data) == 780, f"Expected 780 embeddings, found {len(embeddings_data)}"
 
     def test_embedding_entry_structure(self, embeddings_data):
         """Each embedding entry should have correct fields"""
         if embeddings_data is None:
             pytest.skip("Embeddings file not generated yet")
 
-        required_fields = ['card_name', 'position', 'text', 'embedding']
+        required_fields = ['card_name', 'position', 'interpretation_system', 'text', 'embedding']
 
         for entry in embeddings_data:
             for field in required_fields:
                 assert field in entry, f"Embedding entry missing field: {field}"
 
     def test_embedding_positions(self, embeddings_data):
-        """Each card should have both upright and reversed embeddings"""
+        """Each card should have embeddings for all positions and systems"""
         if embeddings_data is None:
             pytest.skip("Embeddings file not generated yet")
 
@@ -122,13 +148,24 @@ class TestEmbeddingsFile:
             name = entry['card_name']
             if name not in cards_dict:
                 cards_dict[name] = []
-            cards_dict[name].append(entry['position'])
+            cards_dict[name].append((entry['position'], entry['interpretation_system']))
 
-        # Check each card has both positions
-        for card_name, positions in cards_dict.items():
+        # Check each card has all positions and systems (2 positions × 5 systems = 10 embeddings)
+        expected_systems = ['rws_traditional', 'thoth_crowley', 'jungian_psychological', 'modern_intuitive', 'combined']
+        for card_name, entries in cards_dict.items():
+            positions = [e[0] for e in entries]
+            systems = [e[1] for e in entries]
+
+            # Check both positions exist
             assert 'upright' in positions, f"{card_name} missing upright embedding"
             assert 'reversed' in positions, f"{card_name} missing reversed embedding"
-            assert len(positions) == 2, f"{card_name} has {len(positions)} embeddings, expected 2"
+
+            # Check all systems exist
+            for system in expected_systems:
+                assert system in systems, f"{card_name} missing {system} embedding"
+
+            # Check total count (2 positions × 5 systems = 10)
+            assert len(entries) == 10, f"{card_name} has {len(entries)} embeddings, expected 10"
 
     def test_embedding_dimensions(self, embeddings_data):
         """All embeddings should have same dimensions"""

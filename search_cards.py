@@ -104,7 +104,8 @@ def search_cards(
     embeddings_data: List[Dict],
     client: OpenAI,
     top_k: int = 5,
-    position_filter: str = None
+    position_filter: str = None,
+    system_filter: str = None
 ) -> List[Tuple[str, str, float]]:
     """
     Search for cards semantically similar to a query.
@@ -115,6 +116,7 @@ def search_cards(
         client: OpenAI client
         top_k: Number of results to return
         position_filter: Filter by 'upright' or 'reversed' (None for both)
+        system_filter: Filter by interpretation system (None for combined/all)
 
     Returns:
         List of (card_name, position, similarity_score) tuples
@@ -122,9 +124,16 @@ def search_cards(
     # Get query embedding
     query_embedding = get_query_embedding(client, query)
 
+    # Determine which system to use (default to 'combined' if not specified)
+    target_system = system_filter if system_filter else 'combined'
+
     # Calculate similarities
     similarities = []
     for card_data in embeddings_data:
+        # Apply system filter
+        if card_data.get('interpretation_system', 'combined') != target_system:
+            continue
+
         # Apply position filter if specified
         if position_filter and card_data['position'] != position_filter:
             continue
@@ -148,7 +157,8 @@ def find_similar_cards(
     embeddings_data: List[Dict],
     top_k: int = 5,
     exclude_self: bool = True,
-    exclude_same_card: bool = True
+    exclude_same_card: bool = True,
+    system_filter: str = None
 ) -> List[Tuple[str, str, float]]:
     """
     Find cards similar to a given card.
@@ -160,24 +170,33 @@ def find_similar_cards(
         top_k: Number of results to return
         exclude_self: Whether to exclude the exact same card and position
         exclude_same_card: Whether to exclude the same card in both positions (default True)
+        system_filter: Filter by interpretation system (None for combined/all)
 
     Returns:
         List of (card_name, position, similarity_score) tuples
     """
-    # Find the target card's embedding
+    # Determine which system to use (default to 'combined' if not specified)
+    target_system = system_filter if system_filter else 'combined'
+
+    # Find the target card's embedding for the specified system
     target_embedding = None
     for card_data in embeddings_data:
         if (card_data['card_name'] == card_name and
-            card_data['position'] == position):
+            card_data['position'] == position and
+            card_data.get('interpretation_system', 'combined') == target_system):
             target_embedding = card_data['embedding']
             break
 
     if target_embedding is None:
-        raise ValueError(f"Card not found: {card_name} ({position})")
+        raise ValueError(f"Card not found: {card_name} ({position}) for system {target_system}")
 
     # Calculate similarities
     similarities = []
     for card_data in embeddings_data:
+        # Apply system filter
+        if card_data.get('interpretation_system', 'combined') != target_system:
+            continue
+
         # Exclude same card (both positions) if requested
         if exclude_same_card and card_data['card_name'] == card_name:
             continue
@@ -429,6 +448,13 @@ def main():
         action='store_true',
         help='Output results in YAML format'
     )
+    parser.add_argument(
+        '--system',
+        choices=['rws_traditional', 'thoth_crowley', 'jungian_psychological', 'modern_intuitive', 'combined'],
+        default='combined',
+        metavar='SYSTEM',
+        help='Filter by interpretation system: rws_traditional, thoth_crowley, jungian_psychological, modern_intuitive, combined (default: combined)'
+    )
 
     args = parser.parse_args()
 
@@ -491,7 +517,8 @@ def main():
                 position,
                 embeddings_data,
                 top_k=args.top,
-                exclude_same_card=not args.include_same_card
+                exclude_same_card=not args.include_same_card,
+                system_filter=args.system
             )
             display_search_results(results, cards_data, output_format)
         except ValueError as e:
@@ -509,7 +536,8 @@ def main():
                 args.query,
                 embeddings_data,
                 client,
-                top_k=args.top
+                top_k=args.top,
+                system_filter=args.system
             )
             display_search_results(results, cards_data, output_format)
         except Exception as e:

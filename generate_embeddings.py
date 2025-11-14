@@ -24,17 +24,23 @@ def load_data():
 
     return cards, interpretations
 
-def create_card_text(card: Dict, interpretations: Dict, position: str = 'upright') -> str:
+def create_card_text_for_system(
+    card: Dict,
+    interpretations: Dict,
+    position: str = 'upright',
+    system: str = None
+) -> str:
     """
-    Create comprehensive text representation of a card for embedding.
+    Create text representation of a card for a specific interpretation system.
 
     Args:
         card: Card data from cards.json
         interpretations: Interpretation data from interpretations.json
         position: 'upright' or 'reversed'
+        system: Interpretation system key (or None for combined)
 
     Returns:
-        Combined text for embedding
+        Text for embedding
     """
     card_name = card['name']
 
@@ -50,92 +56,110 @@ def create_card_text(card: Dict, interpretations: Dict, position: str = 'upright
         if 'rdesc' in card and card['rdesc']:
             parts.append(f"Basic meaning: {card['rdesc']}")
 
-    # Add interpretations from all systems
+    # Add interpretation from specific system or all systems
     if card_name in interpretations:
         card_interp = interpretations[card_name]
 
-        # Rider-Waite-Smith Traditional
-        if 'rws_traditional' in card_interp:
-            rws = card_interp['rws_traditional'].get(position, '')
-            if rws:
-                parts.append(f"Traditional interpretation: {rws}")
+        if system:
+            # Single system
+            if system in card_interp:
+                interp_text = card_interp[system].get(position, '')
+                if interp_text:
+                    parts.append(f"Interpretation: {interp_text}")
+        else:
+            # All systems (combined)
+            if 'rws_traditional' in card_interp:
+                rws = card_interp['rws_traditional'].get(position, '')
+                if rws:
+                    parts.append(f"Traditional interpretation: {rws}")
 
-        # Thoth/Crowley
-        if 'thoth_crowley' in card_interp:
-            thoth = card_interp['thoth_crowley'].get(position, '')
-            if thoth:
-                parts.append(f"Crowley/Thoth interpretation: {thoth}")
+            if 'thoth_crowley' in card_interp:
+                thoth = card_interp['thoth_crowley'].get(position, '')
+                if thoth:
+                    parts.append(f"Crowley/Thoth interpretation: {thoth}")
 
-        # Jungian/Psychological
-        if 'jungian_psychological' in card_interp:
-            jungian = card_interp['jungian_psychological'].get(position, '')
-            if jungian:
-                parts.append(f"Jungian/psychological interpretation: {jungian}")
+            if 'jungian_psychological' in card_interp:
+                jungian = card_interp['jungian_psychological'].get(position, '')
+                if jungian:
+                    parts.append(f"Jungian/psychological interpretation: {jungian}")
 
-        # Modern/Intuitive
-        if 'modern_intuitive' in card_interp:
-            modern = card_interp['modern_intuitive'].get(position, '')
-            if modern:
-                parts.append(f"Modern/intuitive interpretation: {modern}")
+            if 'modern_intuitive' in card_interp:
+                modern = card_interp['modern_intuitive'].get(position, '')
+                if modern:
+                    parts.append(f"Modern/intuitive interpretation: {modern}")
 
     return "\n".join(parts)
 
+
+def create_card_text(card: Dict, interpretations: Dict, position: str = 'upright') -> str:
+    """
+    Create comprehensive text representation of a card for embedding (all systems).
+
+    Args:
+        card: Card data from cards.json
+        interpretations: Interpretation data from interpretations.json
+        position: 'upright' or 'reversed'
+
+    Returns:
+        Combined text for embedding
+    """
+    return create_card_text_for_system(card, interpretations, position, system=None)
+
+# Interpretation systems
+INTERPRETATION_SYSTEMS = {
+    'rws_traditional': 'Rider-Waite-Smith (Traditional)',
+    'thoth_crowley': 'Thoth/Crowley (Esoteric)',
+    'jungian_psychological': 'Jungian/Psychological (Archetypes)',
+    'modern_intuitive': 'Modern/Intuitive (Contemporary)',
+    'combined': 'All Systems Combined'
+}
+
+
 def generate_embeddings(client: OpenAI, cards: List[Dict], interpretations: Dict) -> List[Dict]:
     """
-    Generate embeddings for all cards (both upright and reversed).
+    Generate embeddings for all cards (both upright and reversed) for each interpretation system.
 
     Returns:
         List of embedding records with metadata
     """
     embeddings_data = []
 
+    # Systems to generate embeddings for (individual systems + combined)
+    systems = ['rws_traditional', 'thoth_crowley', 'jungian_psychological', 'modern_intuitive', 'combined']
+
     for card in cards:
         card_name = card['name']
         print(f"Processing: {card_name}")
 
-        # Generate upright embedding
-        upright_text = create_card_text(card, interpretations, 'upright')
-        print(f"  - Generating upright embedding...")
+        for position in ['upright', 'reversed']:
+            for system in systems:
+                # Determine system key (None for combined)
+                system_key = None if system == 'combined' else system
 
-        try:
-            upright_response = client.embeddings.create(
-                model="text-embedding-3-small",
-                input=upright_text
-            )
+                # Create text for this specific system
+                text = create_card_text_for_system(card, interpretations, position, system_key)
 
-            upright_embedding = upright_response.data[0].embedding
+                system_label = INTERPRETATION_SYSTEMS[system]
+                print(f"  - Generating {position} embedding for {system_label}...")
 
-            embeddings_data.append({
-                'card_name': card_name,
-                'position': 'upright',
-                'text': upright_text,
-                'embedding': upright_embedding
-            })
+                try:
+                    response = client.embeddings.create(
+                        model="text-embedding-3-small",
+                        input=text
+                    )
 
-        except Exception as e:
-            print(f"  ✗ Error generating upright embedding: {e}")
+                    embedding = response.data[0].embedding
 
-        # Generate reversed embedding
-        reversed_text = create_card_text(card, interpretations, 'reversed')
-        print(f"  - Generating reversed embedding...")
+                    embeddings_data.append({
+                        'card_name': card_name,
+                        'position': position,
+                        'interpretation_system': system,
+                        'text': text,
+                        'embedding': embedding
+                    })
 
-        try:
-            reversed_response = client.embeddings.create(
-                model="text-embedding-3-small",
-                input=reversed_text
-            )
-
-            reversed_embedding = reversed_response.data[0].embedding
-
-            embeddings_data.append({
-                'card_name': card_name,
-                'position': 'reversed',
-                'text': reversed_text,
-                'embedding': reversed_embedding
-            })
-
-        except Exception as e:
-            print(f"  ✗ Error generating reversed embedding: {e}")
+                except Exception as e:
+                    print(f"  ✗ Error generating {position}/{system} embedding: {e}")
 
     return embeddings_data
 
@@ -172,7 +196,8 @@ def main():
 
     # Generate embeddings
     print("Generating embeddings...")
-    print(f"(Creating {len(cards) * 2} embeddings: upright + reversed)")
+    print(f"(Creating {len(cards) * 2 * 5} embeddings: {len(cards)} cards × 2 positions × 5 systems)")
+    print("Systems: Traditional, Crowley, Jungian, Modern, Combined")
     print()
     embeddings_data = generate_embeddings(client, cards, interpretations)
 

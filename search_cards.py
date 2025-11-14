@@ -37,6 +37,7 @@ except ImportError:
 # Configuration
 EMBEDDINGS_FILE = 'card_embeddings.json'
 CARDS_FILE = 'cards.json'
+INTERPRETATIONS_FILE = 'interpretations.json'
 
 
 def load_embeddings() -> List[Dict]:
@@ -54,6 +55,12 @@ def load_embeddings() -> List[Dict]:
 def load_cards() -> List[Dict]:
     """Load card data"""
     with open(CARDS_FILE, 'r') as f:
+        return json.load(f)
+
+
+def load_interpretations() -> Dict:
+    """Load interpretation data"""
+    with open(INTERPRETATIONS_FILE, 'r') as f:
         return json.load(f)
 
 
@@ -221,13 +228,20 @@ def find_similar_cards(
     return similarities[:top_k]
 
 
-def format_results_as_data(results: List[Tuple[str, str, float]], cards_data: List[Dict]) -> List[Dict]:
+def format_results_as_data(
+    results: List[Tuple[str, str, float]],
+    cards_data: List[Dict],
+    system: str = 'combined',
+    interpretations_data: Dict = None
+) -> List[Dict]:
     """
     Format search results as structured data (for JSON/YAML output).
 
     Args:
         results: List of (card_name, position, similarity_score) tuples
         cards_data: Card data for additional info
+        system: Interpretation system used for search
+        interpretations_data: Interpretation data for system-specific meanings
 
     Returns:
         List of dictionaries with card information
@@ -241,11 +255,24 @@ def format_results_as_data(results: List[Tuple[str, str, float]], cards_data: Li
         if not card:
             continue
 
+        # Get meaning based on system
+        if system != 'combined' and interpretations_data and card_name in interpretations_data:
+            # Use system-specific interpretation
+            card_interp = interpretations_data[card_name]
+            if system in card_interp and position in card_interp[system]:
+                meaning = card_interp[system][position]
+            else:
+                # Fallback to basic meaning if system interpretation not found
+                meaning = card['desc'] if position == 'upright' else card['rdesc']
+        else:
+            # Use basic meaning for combined system
+            meaning = card['desc'] if position == 'upright' else card['rdesc']
+
         result_entry = {
             'card_name': card_name,
             'position': position,
             'similarity': float(score),
-            'meaning': card['desc'] if position == 'upright' else card['rdesc']
+            'meaning': meaning
         }
         formatted_results.append(result_entry)
 
@@ -255,7 +282,9 @@ def format_results_as_data(results: List[Tuple[str, str, float]], cards_data: Li
 def display_search_results(
     results: List[Tuple[str, str, float]],
     cards_data: List[Dict],
-    output_format: Optional[str] = None
+    output_format: Optional[str] = None,
+    system: str = 'combined',
+    interpretations_data: Dict = None
 ):
     """
     Display search results in the specified format.
@@ -264,10 +293,12 @@ def display_search_results(
         results: List of (card_name, position, similarity_score) tuples
         cards_data: Card data for additional info
         output_format: Output format ('json', 'yaml', or None for human-readable)
+        system: Interpretation system used for search
+        interpretations_data: Interpretation data for system-specific meanings
     """
     # Handle structured output formats
     if output_format in ['json', 'yaml']:
-        formatted_data = format_results_as_data(results, cards_data)
+        formatted_data = format_results_as_data(results, cards_data, system, interpretations_data)
 
         if output_format == 'json':
             print(json.dumps(formatted_data, indent=2))
@@ -294,11 +325,21 @@ def display_search_results(
         print(f"\n{i}. {card_name} ({position.upper()})")
         print(f"   Similarity: {score:.4f}")
 
-        # Show brief meaning
-        if position == 'upright':
-            print(f"   Meaning: {card['desc'][:100]}...")
+        # Get meaning based on system
+        if system != 'combined' and interpretations_data and card_name in interpretations_data:
+            # Use system-specific interpretation
+            card_interp = interpretations_data[card_name]
+            if system in card_interp and position in card_interp[system]:
+                meaning = card_interp[system][position]
+            else:
+                # Fallback to basic meaning
+                meaning = card['desc'] if position == 'upright' else card['rdesc']
         else:
-            print(f"   Meaning: {card['rdesc'][:100]}...")
+            # Use basic meaning for combined system
+            meaning = card['desc'] if position == 'upright' else card['rdesc']
+
+        # Show brief meaning
+        print(f"   Meaning: {meaning[:100]}...")
 
 
 def interactive_search():
@@ -318,6 +359,7 @@ def interactive_search():
     try:
         embeddings_data = load_embeddings()
         cards_data = load_cards()
+        interpretations_data = load_interpretations()
         print(f"✓ Loaded {len(embeddings_data)} embeddings for {len(cards_data)} cards")
     except FileNotFoundError as e:
         print(f"Error: {e}")
@@ -372,7 +414,7 @@ def interactive_search():
                     embeddings_data,
                     top_k=5
                 )
-                display_search_results(results, cards_data)
+                display_search_results(results, cards_data, system='combined', interpretations_data=interpretations_data)
             except ValueError as e:
                 print(f"✗ Error: {e}")
 
@@ -387,7 +429,7 @@ def interactive_search():
                     client,
                     top_k=5
                 )
-                display_search_results(results, cards_data)
+                display_search_results(results, cards_data, system='combined', interpretations_data=interpretations_data)
             except Exception as e:
                 print(f"✗ Error: {e}")
 
@@ -484,6 +526,7 @@ def main():
     try:
         embeddings_data = load_embeddings()
         cards_data = load_cards()
+        interpretations_data = load_interpretations()
     except FileNotFoundError as e:
         print(f"Error: {e}")
         sys.exit(1)
@@ -520,7 +563,7 @@ def main():
                 exclude_same_card=not args.include_same_card,
                 system_filter=args.system
             )
-            display_search_results(results, cards_data, output_format)
+            display_search_results(results, cards_data, output_format, args.system, interpretations_data)
         except ValueError as e:
             print(f"✗ Error: {e}", file=sys.stderr)
             sys.exit(1)
@@ -539,7 +582,7 @@ def main():
                 top_k=args.top,
                 system_filter=args.system
             )
-            display_search_results(results, cards_data, output_format)
+            display_search_results(results, cards_data, output_format, args.system, interpretations_data)
         except Exception as e:
             print(f"✗ Error: {e}", file=sys.stderr)
             sys.exit(1)

@@ -4,12 +4,30 @@ import os
 from datetime import datetime
 from typing import List, Dict, Optional
 
-# Load JSON file
+# Load JSON files
 with open('cards.json') as file:
     tarot_deck = json.load(file)
 
+# Load interpretation systems
+try:
+    with open('interpretations.json') as file:
+        interpretations_db = json.load(file)
+except FileNotFoundError:
+    interpretations_db = {}
+
 HISTORY_FILE = 'reading_history.json'
 DAILY_CARD_FILE = 'daily_card.json'
+
+# Interpretation systems available
+INTERPRETATION_SYSTEMS = {
+    'rws_traditional': 'Rider-Waite-Smith (Traditional)',
+    'thoth_crowley': 'Thoth/Crowley (Esoteric)',
+    'jungian_psychological': 'Jungian/Psychological (Archetypes)',
+    'modern_intuitive': 'Modern/Intuitive (Contemporary)'
+}
+
+# Current interpretation mode (can be changed by user)
+current_interpretation_mode = 'rws_traditional'
 
 # Major Arcana cards (0-21)
 MAJOR_ARCANA = [
@@ -24,8 +42,25 @@ def clear_screen():
     """Clear the terminal screen"""
     os.system('clear' if os.name != 'nt' else 'cls')
 
-def display_card(card: Dict, is_reversed: bool = False):
+def get_interpretation(card_name: str, is_reversed: bool = False, mode: str = None) -> str:
+    """Get interpretation for a card based on the current interpretation mode"""
+    if mode is None:
+        mode = current_interpretation_mode
+
+    if card_name not in interpretations_db:
+        return None
+
+    card_interp = interpretations_db[card_name]
+    if mode not in card_interp:
+        return None
+
+    position = 'reversed' if is_reversed else 'upright'
+    return card_interp[mode].get(position, '')
+
+def display_card(card: Dict, is_reversed: bool = False, show_all_interpretations: bool = False):
     """Display a card with its information"""
+    global current_interpretation_mode
+
     print(f"\n{'═' * 50}")
     print(f"Card: {card['name']}")
     if is_reversed:
@@ -39,6 +74,26 @@ def display_card(card: Dict, is_reversed: bool = False):
 
     if 'cbd_desc' in card:
         print(f"\nAdditional Interpretation: {card['cbd_desc']}")
+
+    # Show interpretations from different systems
+    if card['name'] in interpretations_db:
+        if show_all_interpretations:
+            print(f"\n{'─' * 50}")
+            print("MULTIPLE PERSPECTIVES:")
+            print(f"{'─' * 50}")
+            for mode_key, mode_name in INTERPRETATION_SYSTEMS.items():
+                interp = get_interpretation(card['name'], is_reversed, mode_key)
+                if interp:
+                    print(f"\n• {mode_name}:")
+                    print(f"  {interp}")
+        else:
+            # Show current interpretation mode
+            interp = get_interpretation(card['name'], is_reversed, current_interpretation_mode)
+            if interp:
+                print(f"\n{'─' * 50}")
+                print(f"{INTERPRETATION_SYSTEMS[current_interpretation_mode]}:")
+                print(f"{interp}")
+
     print(f"{'═' * 50}\n")
 
 def search_card(card_name: str):
@@ -338,11 +393,111 @@ def list_all_cards():
             print(f"  - {card['name']}")
     print()
 
+def change_interpretation_mode():
+    """Change the interpretation system"""
+    global current_interpretation_mode
+
+    print("\n" + "═" * 50)
+    print("SELECT INTERPRETATION SYSTEM")
+    print("═" * 50)
+    print("\nChoose how you'd like your cards interpreted:\n")
+
+    modes = list(INTERPRETATION_SYSTEMS.items())
+    for i, (key, name) in enumerate(modes, 1):
+        marker = "→" if key == current_interpretation_mode else " "
+        print(f"{marker} {i}. {name}")
+
+        # Add description
+        if key == 'rws_traditional':
+            print("     Traditional meanings, story-based, beginner-friendly")
+        elif key == 'thoth_crowley':
+            print("     Esoteric, occult, Kabbalistic, advanced symbolism")
+        elif key == 'jungian_psychological':
+            print("     Psychological archetypes, shadow work, individuation")
+        elif key == 'modern_intuitive':
+            print("     Contemporary themes, personal connection, intuitive")
+
+    print()
+    choice = input("Enter your choice (or press Enter to keep current): ").strip()
+
+    if choice.isdigit():
+        idx = int(choice) - 1
+        if 0 <= idx < len(modes):
+            current_interpretation_mode = modes[idx][0]
+            print(f"\n✓ Interpretation mode changed to: {INTERPRETATION_SYSTEMS[current_interpretation_mode]}")
+        else:
+            print("\n✗ Invalid choice.")
+    else:
+        print(f"\n✓ Keeping current mode: {INTERPRETATION_SYSTEMS[current_interpretation_mode]}")
+
+def compare_interpretations():
+    """View all interpretations for a specific card"""
+    print("\n" + "═" * 50)
+    print("COMPARE INTERPRETATIONS")
+    print("═" * 50)
+
+    card_name = input("\nEnter card name: ").strip()
+
+    # Find the card
+    card = None
+    for c in tarot_deck:
+        if c['name'].lower() == card_name.lower():
+            card = c
+            break
+
+    if not card:
+        print("\n✗ Card not found.")
+        return
+
+    # Ask for position
+    position = input("Upright or Reversed? (u/r, default: u): ").strip().lower()
+    is_reversed = position == 'r'
+
+    # Display card with all interpretations
+    display_card(card, is_reversed, show_all_interpretations=True)
+
+def interpretation_guide():
+    """Show guide to interpretation systems"""
+    print("\n" + "═" * 50)
+    print("INTERPRETATION SYSTEMS GUIDE")
+    print("═" * 50)
+
+    print("\n1. RIDER-WAITE-SMITH (Traditional)")
+    print("   • Most popular and beginner-friendly system")
+    print("   • Story-based interpretations from card imagery")
+    print("   • Based on A.E. Waite's 1909 deck")
+    print("   • Linear narrative following The Fool's Journey")
+
+    print("\n2. THOTH/CROWLEY (Esoteric)")
+    print("   • Deep occult and Kabbalistic symbolism")
+    print("   • Based on Aleister Crowley's 1969 deck")
+    print("   • Rich in alchemy and hermetic philosophy")
+    print("   • Some cards renamed (e.g., Strength → Lust)")
+
+    print("\n3. JUNGIAN/PSYCHOLOGICAL (Archetypes)")
+    print("   • Based on Carl Jung's analytical psychology")
+    print("   • Focus on archetypes and the collective unconscious")
+    print("   • Emphasizes shadow work and individuation")
+    print("   • Cards as mirrors for inner psychological states")
+
+    print("\n4. MODERN/INTUITIVE (Contemporary)")
+    print("   • Contemporary language and themes")
+    print("   • Emphasizes personal connection to cards")
+    print("   • Flexible, intuitive approach")
+    print("   • Relevant to modern life situations")
+
+    print("\n" + "─" * 50)
+    print("Current mode: " + INTERPRETATION_SYSTEMS[current_interpretation_mode])
+    print("═" * 50 + "\n")
+
 def display_menu():
     """Display the main menu"""
+    global current_interpretation_mode
+
     print("\n" + "╔" + "═" * 48 + "╗")
     print("║" + " " * 12 + "ASCII TAROT READER" + " " * 18 + "║")
     print("╚" + "═" * 48 + "╝")
+    print(f"Current Interpretation: {INTERPRETATION_SYSTEMS[current_interpretation_mode]}")
     print("\n📖 READINGS:")
     print("  1. Single Card Reading")
     print("  2. Three Card Reading (Past, Present, Future)")
@@ -357,6 +512,10 @@ def display_menu():
     print("  10. List all cards")
     print("  11. Show Major Arcana only")
     print("  12. Show Minor Arcana only")
+    print("\n🔮 INTERPRETATION SYSTEMS:")
+    print("  14. Change interpretation system")
+    print("  15. Compare all interpretations for a card")
+    print("  16. Interpretation systems guide")
     print("\n📚 HISTORY:")
     print("  13. View reading history")
     print("\n  0. Exit")
@@ -406,6 +565,12 @@ def main():
                 filter_by_arcana('minor')
             elif choice == '13':
                 view_reading_history()
+            elif choice == '14':
+                change_interpretation_mode()
+            elif choice == '15':
+                compare_interpretations()
+            elif choice == '16':
+                interpretation_guide()
             else:
                 print("\n✗ Invalid choice. Please try again.")
                 continue

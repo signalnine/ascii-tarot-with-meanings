@@ -1,6 +1,11 @@
 node_modules/
 package-lock.json
 
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
 # Generated data files
 reading_history.json
 daily_card.json

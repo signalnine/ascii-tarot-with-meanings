@@ -394,5 +394,1013 @@
       "upright": "You did it! Celebrate completion. The world is yours. Full circle moment. Integration and wholeness achieved. Dance with joy!",
       "reversed": "Almost there - finish strong. Loose ends need tying. Don't fear the ending. Complete the cycle. You're ready for the next chapter."
     }
+  },
+  "Ace of Wands": {
+    "rws_traditional": {
+      "upright": "New creative beginning, inspiration, potential, initial spark. A powerful opportunity emerging. Divine creative force ready to be channeled into action.",
+      "reversed": "Delayed plans, lack of direction, creative blocks. Unfocused energy. Missed opportunities or uncertainty about which path to take."
+    },
+    "thoth_crowley": {
+      "upright": "Root of the Powers of Fire. The primordial flame of creation and pure will. Represents the lightning flash of divine energy descending into manifestation.",
+      "reversed": "Creative power scattered or misdirected. The sacred flame dimmed by doubt. Primal fire energy blocked from expression."
+    },
+    "jungian_psychological": {
+      "upright": "The awakening of libido and creative life force. Represents the initial surge of psychic energy toward a new direction. Pure potential before ego directs it.",
+      "reversed": "Libido blocked or withdrawn from consciousness. Creative energy turned inward creating restlessness. Disconnection from the vital life force."
+    },
+    "modern_intuitive": {
+      "upright": "Your breakthrough moment is here! Seize the opportunity. Creative fire ignited. Trust the inspiration and take the first step boldly.",
+      "reversed": "Timing isn't quite right yet. Refine your idea. Don't force it. Your spark will reignite when you reconnect with your passion."
+    }
+  },
+  "Two of Wands": {
+    "rws_traditional": {
+      "upright": "Planning, future vision, progress, decisions about direction. Standing at a crossroads with the world in your hands. Bold choices leading to expansion.",
+      "reversed": "Fear of the unknown, lack of planning, hesitation. Playing it too safe. Avoiding necessary decisions or feeling overwhelmed by options."
+    },
+    "thoth_crowley": {
+      "upright": "Dominion - Mars in Aries. Established power and authority. Represents the crown prince surveying his domain with bold confidence and strategic vision.",
+      "reversed": "Power without direction. Dominance becoming tyranny. Bold energy scattered rather than strategically focused."
+    },
+    "jungian_psychological": {
+      "upright": "Ego establishing dominion over psychic territory. The individual standing between inner world and outer possibilities. Choice between safety and growth.",
+      "reversed": "Fear of stepping beyond known psychological territory. Ego unable to choose direction. Paralyzed between two worlds."
+    },
+    "modern_intuitive": {
+      "upright": "The world is yours for the taking. Make bold plans. Think bigger. Your vision is ready to expand beyond current boundaries.",
+      "reversed": "Analysis paralysis. Stop overthinking. Small steps are still steps. Trust yourself to choose and adjust along the way."
+    }
+  },
+  "Three of Wands": {
+    "rws_traditional": {
+      "upright": "Expansion, foresight, overseas opportunities, leadership. Ships coming in. Looking ahead with confidence. Plans are progressing well.",
+      "reversed": "Playing small, lack of foresight, delays in plans. Return of investment delayed. Obstacles to expansion or narrow vision."
+    },
+    "thoth_crowley": {
+      "upright": "Virtue - Sun in Aries. Established strength and noble character. Represents leadership with integrity and the courage to stand firm in principles.",
+      "reversed": "Virtue compromised by impatience. Strength without wisdom. Noble intentions undermined by impulsive action."
+    },
+    "jungian_psychological": {
+      "upright": "Confidence in individuation journey establishing. Ego strong enough to explore new territories. Vision extends beyond personal to collective contribution.",
+      "reversed": "Fear of success or expansion. Self-sabotage when growth opportunities arise. Inability to see beyond current limitations."
+    },
+    "modern_intuitive": {
+      "upright": "Your ships are coming in! Expansion happening. Trust your vision. Leadership opportunities emerging. The wait is almost over.",
+      "reversed": "Delays in manifestation. Don't give up now. Adjust your expectations but keep the vision. Your time will come."
+    }
+  },
+  "Four of Wands": {
+    "rws_traditional": {
+      "upright": "Celebration, harmony, homecoming, stability, milestone achievement. Joyful gatherings and festivities. Foundation established. Community and belonging.",
+      "reversed": "Lack of harmony, instability at home, canceled celebrations. Transient lifestyle. Difficulty finding your place or broken foundations."
+    },
+    "thoth_crowley": {
+      "upright": "Completion - Venus in Aries. Creative tension resolved into beauty and celebration. Represents the marriage of opposites creating stable structure.",
+      "reversed": "Completion delayed or superficial. Unstable foundations beneath beautiful surface. Celebrating prematurely before work is truly complete."
+    },
+    "jungian_psychological": {
+      "upright": "Stable ego structure established. The quaternity achieved bringing psychological wholeness. Represents integration creating inner harmony.",
+      "reversed": "Unstable psychological foundation. Premature sense of completion. Inner disharmony masked by outer celebration."
+    },
+    "modern_intuitive": {
+      "upright": "Time to celebrate! You've earned this victory. Gather your people. Home and happiness align. Enjoy the fruits of your labor.",
+      "reversed": "Delays in celebration. Home feels unsettled. Create your own sense of belonging. Small wins still count."
+    }
+  },
+  "Five of Wands": {
+    "rws_traditional": {
+      "upright": "Conflict, competition, tension, diversity of ideas, playful rivalry. Healthy challenge and growth through friction. Many voices, many directions.",
+      "reversed": "Avoiding conflict, inner tension, conflict resolution. Walking away from unnecessary battles. Agreement after struggle or giving up the fight."
+    },
+    "thoth_crowley": {
+      "upright": "Strife - Saturn in Leo. Chaotic forces in opposition. Represents the struggle where multiple wills clash without clear victor. Creative tension and friction.",
+      "reversed": "Destructive conflict rather than creative tension. Exhaustion from endless battles. Strife turning inward creating inner turmoil."
+    },
+    "jungian_psychological": {
+      "upright": "Conflicting complexes or archetypal energies vying for dominance. Represents necessary tension in the psyche before synthesis. Ego navigating competing drives.",
+      "reversed": "Inner conflict avoided or suppressed. Psychological tension turned inward creating anxiety. Exhaustion from inner battles."
+    },
+    "modern_intuitive": {
+      "upright": "Healthy competition pushes you to grow. Different perspectives create friction. Stay in the arena. This challenge is making you stronger.",
+      "reversed": "Pick your battles wisely. Not every fight is worth it. Inner conflict needs resolution. Step back and reassess."
+    }
+  },
+  "Six of Wands": {
+    "rws_traditional": {
+      "upright": "Victory, public recognition, success, acclaim, achievement. Triumphant return. Leadership acknowledged. Well-deserved praise and confidence.",
+      "reversed": "Excess pride, lack of recognition, delayed success. Private victories. Ego issues or feeling unappreciated for your efforts."
+    },
+    "thoth_crowley": {
+      "upright": "Victory - Jupiter in Leo. Triumph and glory achieved. Represents the crowned and conquering hero receiving accolades. Success with grace and magnanimity.",
+      "reversed": "Victory hollow or short-lived. Pride before the fall. Recognition sought for ego rather than genuine achievement."
+    },
+    "jungian_psychological": {
+      "upright": "Ego strength and accomplishment recognized by collective. Represents successful navigation of challenges building confidence. Healthy ego development.",
+      "reversed": "Ego inflation from praise. Need for external validation revealing inner insecurity. Accomplishment not integrating into wholeness."
+    },
+    "modern_intuitive": {
+      "upright": "Your moment to shine! Recognition coming. Accept the praise graciously. You've earned this victory. Lead with confidence.",
+      "reversed": "Success doesn't need an audience. Private victories matter too. Don't let ego sabotage. Humility serves you now."
+    }
+  },
+  "Seven of Wands": {
+    "rws_traditional": {
+      "upright": "Defending your position, perseverance, standing your ground, challenge. Fighting from higher ground. Maintaining your advantage despite opposition.",
+      "reversed": "Feeling overwhelmed, giving up, surrendering position. Defensive energy exhausting you. Choosing battles poorly or backing down too easily."
+    },
+    "thoth_crowley": {
+      "upright": "Valour - Mars in Leo. Courage in the face of opposition. Represents the warrior defending earned position with fierce determination and noble heart.",
+      "reversed": "Valour becoming obstinacy. Defensive stance when retreat is wise. Exhaustion from defending untenable position."
+    },
+    "jungian_psychological": {
+      "upright": "Ego defending hard-won psychological territory. Represents standing firm in individuation against collective pressure. Courage to maintain authentic position.",
+      "reversed": "Ego overwhelmed by opposing forces. Defensive rigidity preventing growth. Exhaustion from constant psychological defense."
+    },
+    "modern_intuitive": {
+      "upright": "Stand your ground! Your position is strong. Don't let opposition shake you. Fight for what you've built. You've got the advantage.",
+      "reversed": "Burnout from constant defense. Choose your battles. Sometimes strategic retreat is wisdom. Conserve your energy."
+    }
+  },
+  "Eight of Wands": {
+    "rws_traditional": {
+      "upright": "Swift action, rapid progress, movement, travel, messages arriving. Things accelerating quickly. Air travel or quick communication. Momentum building.",
+      "reversed": "Delays, frustration, slowing down, resisting change. Missed timing. Plans stalled or communication breakdowns."
+    },
+    "thoth_crowley": {
+      "upright": "Swiftness - Mercury in Sagittarius. Lightning speed and direct trajectory. Represents the arrow finding its mark with precision and velocity. Rapid manifestation.",
+      "reversed": "Speed without direction. Messages lost or delayed. The arrow missing its target. Haste creating mistakes."
+    },
+    "jungian_psychological": {
+      "upright": "Psychic energy moving rapidly toward manifestation. Represents clarity of purpose accelerating progress. Unconscious and conscious aligned creating momentum.",
+      "reversed": "Psychic energy scattered or blocked. Impatience preventing natural timing. Speed of change overwhelming ego's ability to integrate."
+    },
+    "modern_intuitive": {
+      "upright": "Everything is happening fast! Ride the momentum. Messages and opportunities flying in. Strike while the iron is hot. Go with the flow.",
+      "reversed": "Slow down! Delays are divine protection. Timing is off. Patience needed. Things will move when they're meant to."
+    }
+  },
+  "Nine of Wands": {
+    "rws_traditional": {
+      "upright": "Resilience, persistence, last stand, wounded but standing. Nearly there - don't give up now. Strength through adversity. Guarded and defensive.",
+      "reversed": "Exhaustion, paranoia, struggle, giving up. Obstacles overwhelming you. Defensiveness becoming harmful. Burned out from the fight."
+    },
+    "thoth_crowley": {
+      "upright": "Strength - Moon in Sagittarius. Tremendous power held in reserve. Represents the warrior's endurance and the final test before victory. Resilient strength.",
+      "reversed": "Strength depleted. Reserves exhausted. The final test proving too much. Defensive walls imprisoning rather than protecting."
+    },
+    "jungian_psychological": {
+      "upright": "Ego tested but not broken by trials. Represents accumulated wisdom from wounds. Psychic resilience developed through individuation challenges.",
+      "reversed": "Psychological exhaustion creating paranoia. Defense mechanisms overdeveloped blocking connection. Battle fatigue preventing final integration."
+    },
+    "modern_intuitive": {
+      "upright": "You're stronger than you know. One more push. Don't give up now. Your resilience is remarkable. Victory is just ahead.",
+      "reversed": "Rest is not giving up. Burnout is real. Lower those walls. Heal the wounds. You don't have to do this alone."
+    }
+  },
+  "Ten of Wands": {
+    "rws_traditional": {
+      "upright": "Burden, responsibility, hard work, stress, overwhelm. Carrying too much alone. Success weighing heavy. Almost at the finish line but struggling.",
+      "reversed": "Release of burdens, delegation, lessening responsibilities. Doing too much. Learning to say no or collapsing under weight."
+    },
+    "thoth_crowley": {
+      "upright": "Oppression - Saturn in Sagittarius. Heavy burdens restricting freedom. Represents responsibilities crushing the spirit and success becoming imprisonment.",
+      "reversed": "Burdens released or becoming unbearable. Oppression lifted. The breaking point reached forcing necessary change."
+    },
+    "jungian_psychological": {
+      "upright": "Ego overwhelmed by responsibilities or inflated ambition. Represents psychological burden from carrying too much alone. Success creating new problems.",
+      "reversed": "Ego breakdown from excessive burden. Recognition that some loads must be released. Forced surrender of control."
+    },
+    "modern_intuitive": {
+      "upright": "You're carrying too much. Ask for help. Delegate. Success shouldn't feel this heavy. Almost there - but at what cost?",
+      "reversed": "Put down what's not yours to carry. Burnout is knocking. Release perfectionism. Your worth isn't measured by how much you endure."
+    }
+  },
+  "Page of Wands": {
+    "rws_traditional": {
+      "upright": "Enthusiasm, exploration, discovery, good news, free spirit. Inspiration and creative spark. Messenger bringing exciting opportunities. Youthful energy and courage.",
+      "reversed": "Lack of direction, procrastination, bad news, hasty decisions. Immaturity or scattered energy. Enthusiasm without follow-through."
+    },
+    "thoth_crowley": {
+      "upright": "Princess of Wands - Earth of Fire. The earthy part of flame grounding creative potential. Represents youthful courage and the student of the mysteries eager to learn.",
+      "reversed": "Enthusiasm becoming recklessness. Creative potential squandered. The student refusing to apply discipline to natural talent."
+    },
+    "jungian_psychological": {
+      "upright": "The puer aspect encountering creative fire. Represents the beginning of active individuation with enthusiasm. Childlike wonder meeting transformative energy.",
+      "reversed": "Puer refusing to mature creative gifts. Scattered psychic energy lacking grounding. Enthusiasm without integration."
+    },
+    "modern_intuitive": {
+      "upright": "Exciting news coming! Follow your curiosity. Take inspired action. Your enthusiasm is contagious. Adventure awaits - say yes!",
+      "reversed": "Scattered energy going nowhere. Ground your ideas in reality. Follow through matters. Channel enthusiasm into focused action."
+    }
+  },
+  "Knight of Wands": {
+    "rws_traditional": {
+      "upright": "Action, adventure, passion, impulsiveness, travel. Fearless pursuit of goals. Charismatic energy. Rushing forward with confidence and courage.",
+      "reversed": "Recklessness, impatience, lack of self-control, volatility. Unfocused passion. Burning out quickly or leaving projects unfinished."
+    },
+    "thoth_crowley": {
+      "upright": "Prince of Wands - Air of Fire. The intellectual aspect of creative fire. Represents the brilliant strategist with passionate vision moving swiftly toward conquest.",
+      "reversed": "Brilliance without wisdom. Passion consuming everything in its path. Strategy abandoned for impulsive action."
+    },
+    "jungian_psychological": {
+      "upright": "Dynamic masculine energy in service of individuation. Represents passionate pursuit of psychological truth. Active libido directed toward transformation.",
+      "reversed": "Animus possession in destructive form. Uncontrolled masculine energy. Passion overwhelming ego's ability to direct it wisely."
+    },
+    "modern_intuitive": {
+      "upright": "Go for it with everything you've got! Bold moves win. Follow your passion fearlessly. Adventure and excitement ahead. Take the leap!",
+      "reversed": "Slow down before you crash. Recklessness isn't courage. Finish what you start. Channel that fire into sustainable action."
+    }
+  },
+  "Queen of Wands": {
+    "rws_traditional": {
+      "upright": "Confidence, courage, determination, independence, vivaciousness. Charismatic leader. Passionate and creative. Warm, bold energy that attracts and inspires.",
+      "reversed": "Self-centered, temperamental, jealous, demanding attention. Insecurity masked by bravado. Using charm manipulatively or burning others."
+    },
+    "thoth_crowley": {
+      "upright": "Queen of Wands - Water of Fire. The emotional and reflective aspect of flame. Represents the adaptable fire that warms without consuming, fierce yet nurturing.",
+      "reversed": "Fire consuming rather than warming. Emotional volatility and jealousy. The nurturing flame become destructive and possessive."
+    },
+    "jungian_psychological": {
+      "upright": "Integrated feminine creative power. Represents the anima in her dynamic, inspiring aspect. Confident self-expression and creative authenticity.",
+      "reversed": "Anima in destructive aspect - the seductress or jealous lover. Creative power turned toward ego inflation. Shadow feminine dominating."
+    },
+    "modern_intuitive": {
+      "upright": "Own your power! Your confidence is magnetic. Lead with warmth and strength. Creative fire aligned with purpose. You're unstoppable.",
+      "reversed": "Insecurity making you pushy. Calm the jealousy. Real confidence doesn't need validation. Channel intensity constructively."
+    }
+  },
+  "King of Wands": {
+    "rws_traditional": {
+      "upright": "Natural leader, vision, entrepreneur, honor, boldness. Inspiring others through charisma and conviction. Taking command. Turning visions into reality through willpower.",
+      "reversed": "Tyrannical, domineering, controlling, ruthless. Impulsive leadership. Abusing power or unable to manifest vision. Arrogance and aggression."
+    },
+    "thoth_crowley": {
+      "upright": "Knight of Wands - Fire of Fire. The pure essence of creative flame. Represents the sovereign warrior-king with absolute will and divine authority over the element.",
+      "reversed": "Tyranny and destructive ego. Fire consuming its kingdom. Leadership without compassion or wisdom. Power intoxicating rather than serving."
+    },
+    "jungian_psychological": {
+      "upright": "The integrated masculine creative principle. Represents the animus in highest form - visionary and empowering. Will aligned with Self directing transformation.",
+      "reversed": "Animus possession - dominating and tyrannical. Ego inflated by power. Destructive masculine energy blocking individuation."
+    },
+    "modern_intuitive": {
+      "upright": "Step into leadership! Your vision inspires others. Lead with integrity and passion. Manifest your bold dreams. You were born for this.",
+      "reversed": "Control isn't leadership. Check your ego. Inspire, don't intimidate. True power serves rather than dominates."
+    }
+  },
+  "Ace of Cups": {
+    "rws_traditional": {
+      "upright": "New love, emotional awakening, creativity, intuition, spiritual abundance. A cup overflowing with divine grace and emotional fulfillment. Opening your heart to give and receive love.",
+      "reversed": "Emotional blockage, repressed feelings, creative blocks. Inability to receive love or express emotions. Empty cup - feeling emotionally depleted or closed off."
+    },
+    "thoth_crowley": {
+      "upright": "Root of the Powers of Water. The Holy Grail overflowing with divine love. Represents the primordial waters of emotion and the source of all feelings. Pure potentiality of the heart.",
+      "reversed": "The sacred waters polluted or stagnant. Emotional source blocked. The Grail turned away, unable to receive divine grace."
+    },
+    "jungian_psychological": {
+      "upright": "The emergence of feeling function into consciousness. Opening to the collective unconscious through emotion. Represents the birth of authentic emotional experience and Eros energy.",
+      "reversed": "Feeling function repressed or undeveloped. Cut off from emotional authenticity. Anima/Animus refusing to emerge from the unconscious."
+    },
+    "modern_intuitive": {
+      "upright": "Your heart is opening. New love or deep emotional connection beginning. Creative inspiration flowing. Say yes to love. Divine grace pouring into your life.",
+      "reversed": "Emotional walls up. Give yourself permission to feel. Unblock your heart. Healing needed before you can receive love fully."
+    }
+  },
+  "Two of Cups": {
+    "rws_traditional": {
+      "upright": "Partnership, unity, attraction, connection, mutual respect. Balanced relationship. Deep emotional bond forming. Love, friendship, or partnership aligning beautifully.",
+      "reversed": "Imbalance in relationship, broken communication, tension. Misaligned values. Self-love issues affecting partnership. Separation or disharmony."
+    },
+    "thoth_crowley": {
+      "upright": "Love - Venus in Cancer. The alchemical marriage in the realm of emotions. Represents perfect emotional union and the sacred communion of souls. Love in its purest form.",
+      "reversed": "Love distorted by neediness or possession. The union unbalanced. Venus afflicted - emotional manipulation or codependency masking as love."
+    },
+    "jungian_psychological": {
+      "upright": "Projection of Anima/Animus creating conscious relationship. The coniunctio in emotional realm. Represents the meeting of two individuals in authentic feeling connection.",
+      "reversed": "Projection without recognition. Relationship based on unconscious complexes. Failure to see the other as separate from inner archetype."
+    },
+    "modern_intuitive": {
+      "upright": "Soul connection activated. This relationship has sacred purpose. Mutual attraction and respect. Love flows both ways. Partnership blessed.",
+      "reversed": "One-sided feelings. Codependency patterns surfacing. Love yourself first. Mismatched energies. Heal before committing."
+    }
+  },
+  "Three of Cups": {
+    "rws_traditional": {
+      "upright": "Celebration, friendship, community, collaboration, joy. Coming together in happiness. Sisterhood/brotherhood. Creative collaboration and shared abundance.",
+      "reversed": "Overindulgence, gossip, isolation from friends. Third-wheel dynamics. Excess partying or superficial friendships. Exclusion from the group."
+    },
+    "thoth_crowley": {
+      "upright": "Abundance - Mercury in Cancer. The overflowing of emotional riches. Represents the multiplication of love through community. The sacred three creating overflow.",
+      "reversed": "Abundance turning to excess. Emotional indulgence without substance. Community becoming clique - exclusivity replacing inclusivity."
+    },
+    "jungian_psychological": {
+      "upright": "The feminine principle in triple aspect. Integration of feeling with others. Represents healthy group dynamics and collective emotional expression.",
+      "reversed": "Group psychology overwhelming individual feeling. Collective shadow of gossip and exclusion. Loss of individual authenticity in group."
+    },
+    "modern_intuitive": {
+      "upright": "Celebrate with your people! Friendship circle expanding. Creative collaboration blessed. Joy multiplied when shared. Your tribe has your back.",
+      "reversed": "FOMO or feeling left out. Toxic friend group. Quality over quantity in friendships. Set boundaries with social obligations. Find your real tribe."
+    }
+  },
+  "Four of Cups": {
+    "rws_traditional": {
+      "upright": "Apathy, contemplation, reevaluation, meditation, boredom. Unaware of opportunities. Self-absorbed or taking blessings for granted. Discontent despite abundance.",
+      "reversed": "Awareness dawning, new perspectives, readiness to act. Accepting the offered cup. Coming out of meditation with clarity. Depression lifting."
+    },
+    "thoth_crowley": {
+      "upright": "Luxury - Moon in Cancer. Emotional satisfaction becoming stagnation. Represents comfort becoming complacency. Too much comfort breeding discontent.",
+      "reversed": "Breaking free from luxury's prison. Recognizing that comfort isn't fulfillment. Awakening from emotional numbness."
+    },
+    "jungian_psychological": {
+      "upright": "Saturation of feeling leading to withdrawal. Necessary introversion for emotional processing. The psyche in defensive mode protecting against overwhelm.",
+      "reversed": "Emerging from defensive withdrawal. New emotional openness after period of protection. Recognition of opportunities previously invisible."
+    },
+    "modern_intuitive": {
+      "upright": "Check your gratitude. Opportunity knocking but you're distracted. Time for inner reflection. What are you missing while looking elsewhere? Meditation needed.",
+      "reversed": "Waking up to what's been offered. Snap out of it. Depression clearing. Say yes to the new opportunity. Renewed appreciation coming."
+    }
+  },
+  "Five of Cups": {
+    "rws_traditional": {
+      "upright": "Loss, grief, disappointment, regret, pessimism. Focusing on what's lost rather than what remains. Mourning necessary but dwelling prevents healing. Emotional pain.",
+      "reversed": "Acceptance, moving on, finding peace, forgiveness. Seeing the two cups still standing. Learning from loss. Choosing to heal and rebuild."
+    },
+    "thoth_crowley": {
+      "upright": "Disappointment - Mars in Scorpio. The waters poisoned by conflict. Represents the necessary death of emotional illusions. Grief as teacher.",
+      "reversed": "Moving through disappointment to wisdom. The poison becoming medicine. Mars energy redirected toward healing rather than dwelling."
+    },
+    "jungian_psychological": {
+      "upright": "Shadow card of necessary emotional loss. Mourning required for psychological growth. Represents the death of emotional fantasies revealing reality.",
+      "reversed": "Integration of loss into wholeness. Acceptance allowing growth beyond grief. The wounded healer emerging from personal suffering."
+    },
+    "modern_intuitive": {
+      "upright": "Feel your feelings fully. Grief is necessary. But don't miss what remains while mourning what's gone. Loss teaching important lessons. This too shall pass.",
+      "reversed": "Healing after heartbreak. Forgiveness flowing. Choosing to move forward. Gratitude for what remains. Wisdom gained from pain."
+    }
+  },
+  "Six of Cups": {
+    "rws_traditional": {
+      "upright": "Nostalgia, childhood memories, innocence, reunion, generosity. Looking to the past with sweetness. Old friends returning. Inner child healing. Simple pleasures.",
+      "reversed": "Stuck in the past, rose-colored glasses, childhood issues. Clinging to what was. Need to let go and be present. Unhealed childhood wounds."
+    },
+    "thoth_crowley": {
+      "upright": "Pleasure - Sun in Scorpio. The sweetness of emotional memory. Represents the innocent joy of childhood and pure emotional connection. The heart remembering love.",
+      "reversed": "Nostalgia becoming prison. The past idealized preventing present joy. Childhood wounds unhealed corrupting current relationships."
+    },
+    "jungian_psychological": {
+      "upright": "Connection with the inner child. Accessing early memories for healing. Represents regression in service of the ego - returning to gather what was lost.",
+      "reversed": "Pathological regression. Stuck in childhood patterns. Inability to individuate from early experiences. The mother/father complex dominating."
+    },
+    "modern_intuitive": {
+      "upright": "Beautiful memories surfacing. Old friends reconnecting. Honor your inner child. Simple joys are the deepest. Innocence and sweetness blessed.",
+      "reversed": "Stop living in the past. Those days are gone - be here now. Heal childhood wounds. Create new memories. Release the old story."
+    }
+  },
+  "Seven of Cups": {
+    "rws_traditional": {
+      "upright": "Choices, fantasy, illusion, wishful thinking, imagination. Too many options creating paralysis. Dreams and visions. Distinguishing reality from fantasy needed.",
+      "reversed": "Clarity, determination, values alignment, avoiding temptation. Seeing through illusions. Making the right choice. Grounded in reality after confusion."
+    },
+    "thoth_crowley": {
+      "upright": "Debauchery - Venus in Scorpio. Emotional fantasies and intoxication. Represents the allure of illusion and the dangers of wish fulfillment. The mirage of desire.",
+      "reversed": "Seeing through the debauchery. Illusions dissolving into clarity. Venus and Scorpio finding balance - desire meeting reality."
+    },
+    "jungian_psychological": {
+      "upright": "Overwhelmed by unconscious contents presenting as fantasies. The psyche offering multiple paths but clarity lacking. Inflation through identification with possibilities.",
+      "reversed": "Discrimination developing. Ability to separate fantasy from genuine psychic content. Grounding imagination in reality."
+    },
+    "modern_intuitive": {
+      "upright": "Too many options overwhelming you. Not all that glitters is gold. Ground your dreams in reality. One choice at a time. Beware illusions and false promises.",
+      "reversed": "Clarity cutting through confusion. You know what you really want. Stop fantasizing, start doing. The right path is revealing itself."
+    }
+  },
+  "Eight of Cups": {
+    "rws_traditional": {
+      "upright": "Walking away, seeking deeper meaning, spiritual journey, abandonment, letting go. Leaving behind what no longer fulfills. Courageous departure toward unknown. Soul searching.",
+      "reversed": "Fear of change, avoiding necessary endings, staying in comfort. Running from rather than toward. Incomplete departure. Afraid to leave what's familiar."
+    },
+    "thoth_crowley": {
+      "upright": "Indolence - Saturn in Pisces. The stagnation of emotions requiring departure. Represents the necessary abandonment of emotional comfort for spiritual growth. The hermit's journey beginning.",
+      "reversed": "Paralyzed by indolence. Unable to leave stagnant waters. Saturn's restriction preventing necessary flow and change."
+    },
+    "jungian_psychological": {
+      "upright": "The hero's journey away from collective comfort. Necessary withdrawal to seek the Self. Represents leaving the mother complex to individuate.",
+      "reversed": "Fear of individuation keeping one in collective. Unable to leave psychological comfort zone. Regression preventing the heroic journey."
+    },
+    "modern_intuitive": {
+      "upright": "Trust your knowing that it's time to leave. Walking away from what's no longer aligned. Spiritual quest calling. Courage to seek more. You've outgrown this.",
+      "reversed": "Fear holding you in the wrong place. Complete the departure. Stop looking back. Commitment issues. Make the break clean."
+    }
+  },
+  "Nine of Cups": {
+    "rws_traditional": {
+      "upright": "Satisfaction, contentment, wishes fulfilled, emotional stability, gratitude. The wish card - getting what you desire. Abundance and pleasure. Emotional fulfillment achieved.",
+      "reversed": "Smugness, dissatisfaction, materialism, greed, superficial pleasure. Wishes granted but happiness elusive. Inner emptiness despite outer abundance. Lack of gratitude."
+    },
+    "thoth_crowley": {
+      "upright": "Happiness - Jupiter in Pisces. The overflowing of emotional contentment. Represents wishes manifested and the heart's true satisfaction. Divine blessing in emotional realm.",
+      "reversed": "Happiness based on ego rather than heart. Jupiter's expansion becoming excess. Emotional satisfaction corrupted by smugness or greed."
+    },
+    "jungian_psychological": {
+      "upright": "Emotional integration and satisfaction. The feeling function well-developed and harmonious. Represents genuine contentment arising from psychological wholeness.",
+      "reversed": "False contentment masking shadow. Ego satisfaction without soul fulfillment. Defense against deeper feeling through superficial pleasure."
+    },
+    "modern_intuitive": {
+      "upright": "Your wishes are coming true! Emotional fulfillment achieved. Count your blessings. You deserve this happiness. Celebrate your contentment. Life is good.",
+      "reversed": "Happiness is internal, not external. Check your smugness. Gratitude practice needed. Don't let success make you selfish. Share your abundance."
+    }
+  },
+  "Ten of Cups": {
+    "rws_traditional": {
+      "upright": "Harmony, happy family, alignment, lasting happiness, divine love. Emotional fulfillment in relationships. Rainbow of blessings. The ideal of domestic bliss and community.",
+      "reversed": "Broken family, disconnection, misaligned values, shattered dreams. Unrealistic expectations of happiness. Discord in home. Relationships strained."
+    },
+    "thoth_crowley": {
+      "upright": "Satiety - Mars in Pisces. The complete fulfillment of emotional desires. Represents the perfection of love manifested in lasting form. The holy family blessed.",
+      "reversed": "Satiety becoming stagnation. Emotional completion lacking depth. Mars in Pisces creating passive-aggressive dynamics in family. Complacency in relationship."
+    },
+    "jungian_psychological": {
+      "upright": "The Self manifested through relationship and family. Individuation achieved within collective. Represents the integration of personal and interpersonal wholeness.",
+      "reversed": "Projection of wholeness onto family rather than finding it within. Collective expectations suppressing individual needs. Shadow in relationship dynamics."
+    },
+    "modern_intuitive": {
+      "upright": "Your dream relationship/family manifesting. Lasting emotional fulfillment. All the love you've given returns multiplied. This is what you've been working toward. Heaven on earth.",
+      "reversed": "Release the fantasy of perfect family. Real love has conflict too. Individual needs matter in relationships. Don't sacrifice yourself for false harmony."
+    }
+  },
+  "Page of Cups": {
+    "rws_traditional": {
+      "upright": "Creative opportunities, curiosity, possibility, intuitive messages, inner child. Emotional messenger. Beginnings in love or creative projects. Sensitivity and wonder.",
+      "reversed": "Emotional immaturity, creative blocks, unrealistic dreams, tantrums. Overly sensitive or naive. Message ignored or delayed. Moodiness and escapism."
+    },
+    "thoth_crowley": {
+      "upright": "Princess of Cups - Earthy part of Water. The crystallization of emotion into form. Represents the innocent receiver of feelings. The lotus emerging from water - pure emotional potential.",
+      "reversed": "Emotional immaturity creating problems. The princess refusing to grow. Water becoming ice - feelings frozen rather than flowing."
+    },
+    "jungian_psychological": {
+      "upright": "The divine child in emotional realm. Openness to unconscious messages. Represents the playful, receptive aspect of feeling function. Wonder and emotional authenticity.",
+      "reversed": "Puer/puella aeternus in emotional realm. Refusing emotional maturity. Wounded inner child controlling adult responses. Escapism through fantasy."
+    },
+    "modern_intuitive": {
+      "upright": "Trust your feelings and hunches. Creative inspiration arriving. Message from your intuition or from someone emotional. Stay open and curious. Playfulness blessed.",
+      "reversed": "Emotional immaturity showing. Don't take things so personally. Grow up emotionally. Stop escaping into fantasy. Creative project needs maturity."
+    }
+  },
+  "Knight of Cups": {
+    "rws_traditional": {
+      "upright": "Romance, charm, imagination, following your heart, proposals. The romantic pursuing their dreams. Emotional action. Creative pursuit. Offers in love or art.",
+      "reversed": "Unrealistic, moody, jealousy, overactive imagination. Emotional manipulation. Broken promises. The seducer or the heartbroken. Illusion over reality."
+    },
+    "thoth_crowley": {
+      "upright": "Prince of Cups - Airy part of Water. The emotional idealist in motion. Represents the quest for the holy grail and the romantic pursuit of love. The poet and the dreamer.",
+      "reversed": "The dreamer becoming delusional. Air and Water creating storm - emotional turbulence. The romantic hero's quest becoming escape from reality."
+    },
+    "jungian_psychological": {
+      "upright": "Animus in feeling aspect - the romantic ideal. The hero's journey for emotional truth. Represents the courage to follow the heart despite reason.",
+      "reversed": "Animus possession through romantic fantasy. Moody emotionality. The negative animus creating emotional drama and unrealistic expectations."
+    },
+    "modern_intuitive": {
+      "upright": "Follow your heart fearlessly. Romantic offer or proposal coming. Creative project worth pursuing. Lead with love. Your dreams are valid - chase them.",
+      "reversed": "Too much fantasy, not enough reality. Emotional manipulation. Empty promises. Know the difference between romance and genuine love. Ground your dreams."
+    }
+  },
+  "Queen of Cups": {
+    "rws_traditional": {
+      "upright": "Compassion, calm, comfort, intuition, emotional security. The loving counselor. Emotionally mature and nurturing. Psychic abilities. Trusting your feelings completely.",
+      "reversed": "Insecurity, giving too much, emotional overwhelm, martyrdom. Overly sensitive or emotionally manipulative. Boundaries needed. Emotional drainage."
+    },
+    "thoth_crowley": {
+      "upright": "Queen of Cups - Watery part of Water. The pure essence of emotional wisdom. Represents the reflective, receptive nature of water. The psychic and the dreamer as mature guide.",
+      "reversed": "Drowning in emotion. Water's reflective nature becoming murky. Emotional boundaries dissolved - unable to distinguish self from others' feelings."
+    },
+    "jungian_psychological": {
+      "upright": "The positive mother in emotional realm. Mature Anima offering emotional wisdom. Represents the developed feeling function providing guidance. Eros wisdom.",
+      "reversed": "The devouring mother through emotional manipulation. Anima flooding consciousness. Overwhelming empathy preventing healthy boundaries and individuation."
+    },
+    "modern_intuitive": {
+      "upright": "Your emotional intelligence is your superpower. Trust your intuition completely. Nurture others from overflow. Compassion and wisdom combined. You're the safe harbor.",
+      "reversed": "You're drowning in others' emotions. Set boundaries. Stop over-giving. Your feelings matter too. Protect your energy. Heal the martyr within."
+    }
+  },
+  "King of Cups": {
+    "rws_traditional": {
+      "upright": "Emotional balance, compassion, diplomacy, calm in crisis, wise counselor. Mastery over emotions. Leading with both head and heart. Emotional maturity and stability.",
+      "reversed": "Emotional manipulation, volatility, coldness, repression. Controlling through emotions. Anger beneath calm surface. Disconnection from feelings or overwhelmed by them."
+    },
+    "thoth_crowley": {
+      "upright": "Knight of Cups (King) - Fiery part of Water. Emotional mastery and leadership. Represents the alchemical control of water by fire. The spiritual warrior of the heart.",
+      "reversed": "Fire evaporating water - emotions suppressed by will. Or water extinguishing fire - emotions overwhelming action. The wise king becoming the manipulative tyrant."
+    },
+    "jungian_psychological": {
+      "upright": "The wise king in emotional realm. Mature Animus balanced with Anima. Represents integration of thinking and feeling. Emotional wisdom guiding conscious action.",
+      "reversed": "Animus dominating - emotions controlled rather than felt. Or emotional flooding overwhelming reason. Defense mechanisms creating false calm masking chaos."
+    },
+    "modern_intuitive": {
+      "upright": "Lead with emotional intelligence. You can hold space for all feelings without being overwhelmed. Calm authority. Balance head and heart. Wise counsel flows through you.",
+      "reversed": "Emotional control issues. Either repressing feelings or using them to manipulate. Find balance. Don't weaponize your emotions. True strength includes vulnerability."
+    }
+  },
+  "Ace of Swords": {
+    "rws_traditional": {
+      "upright": "Mental clarity, breakthrough, new ideas, truth revealed. The power of the mind cutting through confusion. Victory through intellect and decisive action.",
+      "reversed": "Confusion, clouded judgment, misinformation. Mental blocks or miscommunication. Harsh words or cutting remarks causing damage."
+    },
+    "thoth_crowley": {
+      "upright": "Root of the Powers of Air. The pure essence of intellect and reason. Represents the seed of consciousness, the primordial sword of justice cutting away illusion to reveal absolute truth.",
+      "reversed": "Intellect divorced from wisdom. The sword turned destructive. Mental force without direction leading to cruelty."
+    },
+    "jungian_psychological": {
+      "upright": "Emergence of conscious awareness. The discriminating function of consciousness breaking through unconscious material. Represents the birth of logos and rational thought.",
+      "reversed": "Intellect used defensively. The thinking function overdeveloped, cutting off from feeling. Rationalization as defense mechanism."
+    },
+    "modern_intuitive": {
+      "upright": "A powerful 'aha' moment is coming. Cut through the noise and see the truth. Your mental clarity is your superpower right now. Speak your truth boldly.",
+      "reversed": "Mental fog obscuring the path. Take time to clear your head before deciding. Avoid arguments where no one wins. Seek clarity before acting."
+    }
+  },
+  "Two of Swords": {
+    "rws_traditional": {
+      "upright": "Difficult decisions, stalemate, avoidance, weighing options. Blindfolded to avoid seeing the truth. Refusing to choose between two paths creates paralysis.",
+      "reversed": "Information revealed, decision made, confusion lifted. Breaking the stalemate. Overwhelming choices or inability to maintain balance."
+    },
+    "thoth_crowley": {
+      "upright": "Peace. The balanced mind in harmonious equilibrium. Swords crossed in truce. Represents intellectual detachment and the calm center within duality.",
+      "reversed": "False peace through avoidance. Suppressed conflict beneath surface calm. Unstable balance threatening to collapse."
+    },
+    "jungian_psychological": {
+      "upright": "Psychological stalemate between conscious and unconscious. The ego holding tension between opposites. Necessary pause before integration.",
+      "reversed": "Collapse of defensive balance. Forced confrontation with avoided material. The end of willful blindness."
+    },
+    "modern_intuitive": {
+      "upright": "You're avoiding a choice you need to make. Remove the blindfold and look at the situation honestly. Temporary peace is not resolution.",
+      "reversed": "Ready to face what you've been avoiding. The truth becomes clear. Choose your path and move forward with conviction."
+    }
+  },
+  "Three of Swords": {
+    "rws_traditional": {
+      "upright": "Heartbreak, grief, sorrow, painful truth. Betrayal or separation causing emotional pain. Words that wound deeply. Necessary release of pain.",
+      "reversed": "Recovery from heartbreak, forgiveness, releasing pain. Moving past sorrow. Avoiding necessary grief or holding onto hurt."
+    },
+    "thoth_crowley": {
+      "upright": "Sorrow. Saturn in Libra - the weight of melancholy and separation. Three swords pierce the rose, beauty wounded by reality. Represents the tears that must fall.",
+      "reversed": "Sorrow turned to bitterness. Refusal to grieve properly. Hardening the heart against necessary pain."
+    },
+    "jungian_psychological": {
+      "upright": "Conscious recognition of painful truths. The necessary wounding that breaks through denial. Integration of shadow material through suffering.",
+      "reversed": "Avoidance of necessary suffering. Wounds festering unacknowledged. Depression as frozen grief."
+    },
+    "modern_intuitive": {
+      "upright": "Your heart is breaking but healing begins with feeling. Let yourself grieve fully. Painful truths are still truths that set you free.",
+      "reversed": "Beginning to heal from old wounds. Ready to forgive yourself or others. Don't rush the grieving process or suppress your pain."
+    }
+  },
+  "Four of Swords": {
+    "rws_traditional": {
+      "upright": "Rest, recuperation, meditation, contemplation. Taking a break from mental activity or conflict. Time for recovery and integration before returning to battle.",
+      "reversed": "Restlessness, burnout, exhaustion ignored. Forced rest due to collapse. Emerging from retreat ready to engage again."
+    },
+    "thoth_crowley": {
+      "upright": "Truce. Jupiter in Libra - temporary peace and respite. Swords laid down in sanctuary. Represents the necessary withdrawal from conflict to regain strength.",
+      "reversed": "Restless mind unable to find peace. Truce broken prematurely. Forced action before recovery is complete."
+    },
+    "jungian_psychological": {
+      "upright": "Ego withdrawal from external demands. Necessary incubation period in the unconscious. The healing power of rest and contemplation.",
+      "reversed": "Avoidance masquerading as rest. Resistance to re-engaging with consciousness. Stagnation rather than recuperation."
+    },
+    "modern_intuitive": {
+      "upright": "You need a mental health day. Rest is productive. Step back from the chaos and recharge. Meditation and quiet time are essential now.",
+      "reversed": "Restlessness won't let you settle. Either you're avoiding necessary rest or you're ready to return to action. Listen to your body."
+    }
+  },
+  "Five of Swords": {
+    "rws_traditional": {
+      "upright": "Conflict, defeat, winning at all costs, hostility. Hollow victory through unfair means. Self-interest and discord. Walking away from unwinnable battles.",
+      "reversed": "Making amends, reconciliation, moving past conflict. Acknowledging mistakes. Desire for revenge or continuing to fight losing battles."
+    },
+    "thoth_crowley": {
+      "upright": "Defeat. Venus in Aquarius - intellectual cruelty and lack of sympathy. Swords broken and disheveled. Represents the degradation of the mind turned against itself.",
+      "reversed": "Acceptance of defeat leading to wisdom. Release of need to win. Transforming loss into learning."
+    },
+    "jungian_psychological": {
+      "upright": "Ego defeat revealing shadow aspects. The pyrrhic victory of the persona. Internal conflict where no part of the psyche truly wins.",
+      "reversed": "Integration after conflict. Reconciliation of warring internal factions. Accepting loss as part of growth."
+    },
+    "modern_intuitive": {
+      "upright": "Walking away is sometimes winning. Not every battle is worth fighting. Choose your peace over being right. Recognize when you've been defeated.",
+      "reversed": "Making peace after conflict. Letting go of grudges. Or still fighting battles that are already lost. Release the need for revenge."
+    }
+  },
+  "Six of Swords": {
+    "rws_traditional": {
+      "upright": "Transition, moving on, leaving behind, travel to calmer waters. Mental shift from turmoil to peace. Recovery through change of environment or perspective.",
+      "reversed": "Resistance to change, unable to move on, emotional baggage. Rough transition or delayed journey. Returning to old problems."
+    },
+    "thoth_crowley": {
+      "upright": "Science. Mercury in Aquarius - the intellectual mind bringing order to chaos. Swords arranged geometrically. Represents rational clarity and systematic thought.",
+      "reversed": "Over-intellectualization avoiding feeling. Cold logic without heart. Scientific detachment becoming inhuman."
+    },
+    "jungian_psychological": {
+      "upright": "Transition from unconscious turmoil to conscious clarity. The journey of individuation moving forward. Carrying wisdom from difficulty into calmer waters.",
+      "reversed": "Resistance to necessary psychological transition. Clinging to familiar suffering. Incomplete integration of past experience."
+    },
+    "modern_intuitive": {
+      "upright": "You're moving toward better mental spaces. Leave the drama behind and sail toward peace. The journey may be slow but you're heading in the right direction.",
+      "reversed": "Stuck in the past or afraid to move forward. You're carrying too much mental baggage. Allow yourself to transition at your own pace."
+    }
+  },
+  "Seven of Swords": {
+    "rws_traditional": {
+      "upright": "Deception, strategy, getting away with something, stealth. Strategic planning or cunning. Betrayal or theft. Acting alone with hidden motives.",
+      "reversed": "Imposter syndrome, confessing, getting caught, coming clean. Paranoia or self-deception. Lies revealed or strategic plans failing."
+    },
+    "thoth_crowley": {
+      "upright": "Futility. Moon in Aquarius - unstable effort and wasted energy. Swords bent and warped. Represents plans that cannot succeed, effort without result.",
+      "reversed": "Recognition of futility leading to new approach. Acceptance that current strategy won't work. Releasing ineffective schemes."
+    },
+    "jungian_psychological": {
+      "upright": "The trickster archetype active. Ego strategies avoiding direct confrontation. Shadow behaviors of evasion and manipulation.",
+      "reversed": "Trickster energy turned inward as self-sabotage. Being caught in one's own deceptions. Integration of shadow trickster."
+    },
+    "modern_intuitive": {
+      "upright": "Strategic thinking required. Work smarter not harder. But check your motives - are you being deceptive or clever? Someone may be withholding truth.",
+      "reversed": "Time to come clean or face the truth. Your tactics aren't working. Stop hiding and confront situations directly. Honesty is the better strategy."
+    }
+  },
+  "Eight of Swords": {
+    "rws_traditional": {
+      "upright": "Imprisonment, restriction, self-imposed limitations, victim mentality. Feeling trapped but the way out exists. Blindfolded by fear or limiting beliefs.",
+      "reversed": "Freedom, release, new perspective, removing restrictions. Breaking free from mental prison. Or refusing to see the available escape."
+    },
+    "thoth_crowley": {
+      "upright": "Interference. Jupiter in Gemini - scattered forces and mental restriction. Swords creating geometric prison. Represents the mind trapped by its own constructs.",
+      "reversed": "Breaking through mental barriers. Recognizing self-imposed limitations. Freedom through changed perspective."
+    },
+    "jungian_psychological": {
+      "upright": "Ego imprisoned by complexes and limiting beliefs. The persona restricting authentic self-expression. Psychological paralysis through fear.",
+      "reversed": "Liberation through conscious awareness. Recognizing the cage is unlocked. Shadow integration releasing restricted energy."
+    },
+    "modern_intuitive": {
+      "upright": "You're more free than you think. The blindfold and ropes are removable. Your limitations are largely mental. Take one small step toward freedom.",
+      "reversed": "Starting to see your way out. Remove the mental blindfold. Take responsibility for your liberation. Or stubbornly refusing obvious solutions."
+    }
+  },
+  "Nine of Swords": {
+    "rws_traditional": {
+      "upright": "Anxiety, worry, nightmares, mental anguish. Overwhelming fear and guilt. Suffering is often worse in the mind than reality. Dark night of the soul.",
+      "reversed": "Recovery from anxiety, seeking help, hope returning. Facing fears. Or descending deeper into despair and refusing support."
+    },
+    "thoth_crowley": {
+      "upright": "Cruelty. Mars in Gemini - mental torture and self-inflicted suffering. Nine bloody swords. Represents the mind turned against itself in merciless judgment.",
+      "reversed": "Recognizing mental cruelty and seeking release. The dawn after the dark night. Compassion breaking through harsh self-judgment."
+    },
+    "jungian_psychological": {
+      "upright": "The ego tormented by unconscious contents. Shadow material manifesting as anxiety and guilt. The necessary crisis before transformation.",
+      "reversed": "Beginning integration of shadow causing anxiety. Seeking help from the deeper Self. Compassion for suffering."
+    },
+    "modern_intuitive": {
+      "upright": "Your thoughts are spiraling. Anxiety is lying to you. Reach out for support. The fears are real but the catastrophes are imagined. You're not alone.",
+      "reversed": "Finding relief from mental torture. Speaking about anxiety reduces its power. Beginning to heal. Or refusing help when you desperately need it."
+    }
+  },
+  "Ten of Swords": {
+    "rws_traditional": {
+      "upright": "Painful ending, betrayal, rock bottom, defeat. Victimization or backstabbing. The darkest before the dawn. Dramatic conclusion and total transformation needed.",
+      "reversed": "Recovery, regeneration, resisting inevitable ending. Rising from defeat. Or refusing to let go of what's finished."
+    },
+    "thoth_crowley": {
+      "upright": "Ruin. Sun in Gemini - complete intellectual dissolution. Ten swords destroying the central structure. Represents utter defeat and the end of a mental construct.",
+      "reversed": "Rising from ruin with wisdom. Phoenix transformation. Accepting destruction as clearing space for new growth."
+    },
+    "jungian_psychological": {
+      "upright": "Ego death and total psychological breakdown. Necessary destruction of outdated structures. The dark night preceding rebirth and transformation.",
+      "reversed": "Resurrection after ego death. New consciousness emerging from dissolution. Resistance to necessary ending prolonging suffering."
+    },
+    "modern_intuitive": {
+      "upright": "It's over, and that's okay. Rock bottom is solid ground to build from. What feels like the end is actually a new beginning. Release and start fresh.",
+      "reversed": "You're recovering from a painful ending. The worst is over. Stop clinging to what's finished. Allow the transformation to complete."
+    }
+  },
+  "Page of Swords": {
+    "rws_traditional": {
+      "upright": "Curiosity, communication, new ideas, vigilance. Mental agility and quick thinking. Spying or gathering information. Youthful approach to intellectual pursuits.",
+      "reversed": "Gossip, deception, haste, scattered thinking. Speaking without thinking. All talk and no action. Immaturity in communication."
+    },
+    "thoth_crowley": {
+      "upright": "Princess of the Rushing Winds. The earthy part of Air. Represents the student of ideas, vigilant and alert. She is the bride of intellectual awakening.",
+      "reversed": "Superficial thinking without depth. Intellectual posturing. The student who refuses to learn or listen."
+    },
+    "jungian_psychological": {
+      "upright": "Emerging thinking function. The youthful aspect of logos. Curious consciousness beginning to question and analyze reality.",
+      "reversed": "Thinking function undeveloped or misused. Intellectual puer energy avoiding depth. Analysis without integration."
+    },
+    "modern_intuitive": {
+      "upright": "Stay curious and ask questions. Think for yourself. Speak up but choose your words wisely. Your mind is sharp - use it well.",
+      "reversed": "Loose lips sink ships. Think before you speak. Avoid gossip and drama. Your words have more power than you realize."
+    }
+  },
+  "Knight of Swords": {
+    "rws_traditional": {
+      "upright": "Action, speed, ambition, driven to succeed. Charging forward with ideas. Direct communication and decisiveness. Intellectual force and focused energy.",
+      "reversed": "Impulsiveness, recklessness, unfocused energy. Aggressive communication. Rushing in without thinking. Scattered efforts and lack of direction."
+    },
+    "thoth_crowley": {
+      "upright": "Prince of the Chariot of the Winds. The airy part of Air. Represents pure intellect in action, swift and incisive. The warrior of ideas cutting through opposition.",
+      "reversed": "Intellectual violence and cruelty. Argumentative and combative without purpose. The mind as weapon destroying without building."
+    },
+    "jungian_psychological": {
+      "upright": "Thinking function fully mobilized. The hero's intellectual quest. Masculine consciousness cutting through to truth with determination.",
+      "reversed": "Puer aeternus in thinking realm - eternal youth avoiding depth. Animus possession causing aggressive intellectualization."
+    },
+    "modern_intuitive": {
+      "upright": "Move quickly and decisively. Your ideas have momentum. Strike while the iron is hot. Be bold but stay focused on your goal.",
+      "reversed": "Slow down before you crash. Your intensity is becoming aggression. Think through consequences. Channel mental energy more constructively."
+    }
+  },
+  "Queen of Swords": {
+    "rws_traditional": {
+      "upright": "Independence, clear thinking, direct communication, unbiased judgment. Intellectual and perceptive. Speaking truth with authority. Experienced through loss but strong.",
+      "reversed": "Cold, bitter, cruel with words, vindictive. Overly critical or harsh. Emotional detachment becoming heartless. Manipulative intelligence."
+    },
+    "thoth_crowley": {
+      "upright": "Queen of the Thrones of Air. The watery part of Air. Represents clarity born of suffering. She perceives the truth and speaks it without sentimentality.",
+      "reversed": "Bitterness masquerading as wisdom. Using intelligence to wound. The Queen whose heart has frozen."
+    },
+    "jungian_psychological": {
+      "upright": "Integrated animus in the feminine. Clear thinking combined with feeling wisdom. The mature thinking function that has weathered loss.",
+      "reversed": "Negative animus dominating consciousness. Harsh judgment replacing compassion. Thinking function cut off from eros."
+    },
+    "modern_intuitive": {
+      "upright": "Speak your truth clearly and without apology. Set firm boundaries. Your clarity is a gift even when it hurts. Be fair but don't compromise yourself.",
+      "reversed": "Your words are cutting too deep. Bitterness is clouding judgment. Balance honesty with kindness. Soften your edges without losing your strength."
+    }
+  },
+  "King of Swords": {
+    "rws_traditional": {
+      "upright": "Intellectual authority, truth, clarity, ethical judgment. Leadership through logic and reason. Fair and just decision-making. Mastery of the mind and communication.",
+      "reversed": "Manipulation, tyranny through intellect, cold and ruthless. Abuse of power through words. Dishonest or corrupt judgment. Mental cruelty."
+    },
+    "thoth_crowley": {
+      "upright": "Knight/Lord of the Winds and Breezes. The fiery part of Air. Represents pure intellect at its highest - swift justice, clear reason, and absolute truth.",
+      "reversed": "The tyrant of thought. Justice corrupted by prejudice. Intellectual authority used for oppression rather than liberation."
+    },
+    "jungian_psychological": {
+      "upright": "Fully developed thinking function. The wise king archetype as logos. Represents objective consciousness that can judge with clarity and fairness.",
+      "reversed": "Senex rigidity in intellectual realm. Logos divorced from eros becoming cruel. The negative father as harsh judge."
+    },
+    "modern_intuitive": {
+      "upright": "Lead with wisdom and clarity. Make decisions based on truth and ethics. Your authority comes from fair judgment. Use your mental power responsibly.",
+      "reversed": "Power without heart is tyranny. Your logic is becoming cold. Include empathy in your decisions. Don't use intelligence as a weapon."
+    }
+  },
+  "Ace of Pentacles": {
+    "rws_traditional": {
+      "upright": "A new financial opportunity, material manifestation, or prosperous beginning appears, offering tangible rewards and the seed of abundance. The hand of divine providence offers you the gift of earthly prosperity and security.",
+      "reversed": "Missed opportunities for financial gain, poor planning, or failure to manifest material goals due to lack of grounding. Resources are squandered or the foundation for prosperity is unstable."
+    },
+    "thoth_crowley": {
+      "upright": "The Root of the Powers of Earth; pure materialization and the crystallization of energy into form, representing the quintessence of earthly power. This is the primordial force of manifestation itself, the seed containing all potential for material reality.",
+      "reversed": "Crystallization becomes rigidity; material power turns to greed or obsession with matter over spirit. The seed of wealth becomes corrupted by attachment to purely physical concerns."
+    },
+    "jungian_psychological": {
+      "upright": "Integration of the material self; the conscious mind recognizes the value of physical existence and embodied experience. A new psychological foundation for security and self-worth emerges from within.",
+      "reversed": "Disconnection from the body and physical reality; shadow issues around worthiness and material security. The ego struggles to accept its earthly nature or becomes overly identified with material possessions."
+    },
+    "modern_intuitive": {
+      "upright": "A golden opportunity is literally in your hands right now - whether it's a job offer, financial windfall, or chance to build something lasting. Trust that the universe is offering you real, tangible support to manifest your dreams.",
+      "reversed": "You're missing the opportunity right in front of you, or you're not ready to receive what's being offered. Check whether fear, unworthiness, or poor timing is blocking your abundance."
+    }
+  },
+  "Two of Pentacles": {
+    "rws_traditional": {
+      "upright": "Skillful juggling of multiple responsibilities, adaptability in managing resources, finding balance amid life's fluctuations. You're managing change with grace, though careful attention is required to maintain equilibrium.",
+      "reversed": "Overwhelmed by too many commitments, financial instability, or inability to balance competing priorities. The juggling act becomes unsustainable and things begin to drop."
+    },
+    "thoth_crowley": {
+      "upright": "Change - the harmonious flux of material forces, the Yin-Yang of earthly manifestation in perpetual motion. Jupiter in Capricorn creates beneficial transformation through disciplined adaptation to life's rhythms.",
+      "reversed": "Change becomes chaos; the inability to adapt to fluctuating circumstances leads to material instability. The harmonious dance of polarities breaks down into discord."
+    },
+    "jungian_psychological": {
+      "upright": "Dynamic equilibrium between opposing aspects of self; the ego learns to hold tension between competing needs and desires. Integration occurs through accepting life's constant flux rather than seeking static stability.",
+      "reversed": "Psychological fragmentation from trying to be too many things; the self becomes scattered and loses center. Inner polarities war against each other rather than dancing in balance."
+    },
+    "modern_intuitive": {
+      "upright": "You're successfully juggling work and life, money in and money out, or multiple projects at once - it's a dynamic balancing act but you've got the rhythm. Stay flexible and trust your ability to adapt to whatever comes.",
+      "reversed": "You're dropping balls left and right and something's got to give before you burn out completely. Simplify your commitments or get better systems in place to handle the complexity."
+    }
+  },
+  "Three of Pentacles": {
+    "rws_traditional": {
+      "upright": "Skilled craftsmanship, collaborative teamwork, and recognition for quality work in the early stages of a project. Your expertise is valued and you're building something of lasting worth through dedicated effort.",
+      "reversed": "Poor collaboration, lack of teamwork, or substandard work that fails to meet expectations. Skills are underdeveloped or not properly applied to the task at hand."
+    },
+    "thoth_crowley": {
+      "upright": "Work - the card of material labor and craftsmanship; Mars in Capricorn brings focused energy to building and construction. This is the sacred act of co-creation, where individual skill serves collective purpose.",
+      "reversed": "Work becomes toil without meaning; labor feels futile or the fruits of effort are not recognized. Collaborative energy breaks down into conflict or competition."
+    },
+    "jungian_psychological": {
+      "upright": "The integration of skill, effort, and recognition; the self finds validation through competent contribution to the collective. Mastery develops through the interplay of individual talent and group standards.",
+      "reversed": "Imposter syndrome or feelings of inadequacy despite competence; fear that one's work doesn't measure up. The inner critic undermines confidence in one's abilities and contributions."
+    },
+    "modern_intuitive": {
+      "upright": "Your skills are being noticed and you're finding your place in a collaborative project where everyone brings their A-game. This is about quality craftsmanship and the satisfaction of building something meaningful with others.",
+      "reversed": "There's dysfunction in the team, your work isn't being appreciated, or you're not pulling your weight. The collaboration is broken or the quality of work isn't meeting the standard."
+    }
+  },
+  "Four of Pentacles": {
+    "rws_traditional": {
+      "upright": "Holding tightly to resources, financial security through conservation, or protecting what you have accumulated. There's stability but also a risk of becoming too controlling or miserly with possessions.",
+      "reversed": "Release of control, letting go of attachment to material things, or conversely, reckless spending and financial instability. The grip on security loosens for better or worse."
+    },
+    "thoth_crowley": {
+      "upright": "Power - the Sun in Capricorn brings earthly authority and established material dominion. This is the fortified position, the castle built and defended, representing consolidated power and rulership over resources.",
+      "reversed": "Power becomes tyranny; material control turns to paranoia and isolation through fear of loss. The fortress becomes a prison of one's own making."
+    },
+    "jungian_psychological": {
+      "upright": "The psychological need for boundaries and security; the ego establishes protective structures around vulnerable resources. This reflects healthy self-preservation but may indicate fear of scarcity.",
+      "reversed": "Either liberation from fear-based hoarding or loss of necessary boundaries around resources. The shadow side of possessiveness emerges, or conversely, healthy release occurs."
+    },
+    "modern_intuitive": {
+      "upright": "You're playing it safe with your money and resources, holding on tight to what you've got - which provides security but might also be limiting growth. There's wisdom in protection but ask if fear is making you too closed off.",
+      "reversed": "You're either finally loosening your death grip and learning to trust flow, or you've lost control entirely and are hemorrhaging resources. Examine whether you need more boundaries or less fear."
+    }
+  },
+  "Five of Pentacles": {
+    "rws_traditional": {
+      "upright": "Financial hardship, material poverty, feeling left out in the cold or excluded from abundance. Though help is often nearby (the church window), pride or despair may prevent you from seeking it.",
+      "reversed": "Recovery from financial loss, finding assistance after hardship, or refusing to accept help that's available. The worst of the material struggle is passing."
+    },
+    "thoth_crowley": {
+      "upright": "Worry - Mercury in Taurus creates mental anxiety about material security and physical wellbeing. This is the card of concern over earthly matters, where the mind becomes preoccupied with scarcity and survival.",
+      "reversed": "Worry transforms into either debilitating anxiety or, through acceptance, the release of material fears. The mental loops about scarcity either intensify or finally break."
+    },
+    "jungian_psychological": {
+      "upright": "The archetype of the wounded outsider; experiencing the shadow of material lack that forces soul-growth through suffering. This poverty may be material, physical, or spiritual, but catalyzes psychological transformation.",
+      "reversed": "Integration of the poverty experience; the wounds of lack begin to heal through acceptance or assistance. The psychological scarcity mindset starts to shift."
+    },
+    "modern_intuitive": {
+      "upright": "You're going through a rough patch financially or feeling excluded and unsupported, but remember that help is often closer than you think - don't let pride keep you from asking. This hardship, though painful, is temporary and carries important lessons.",
+      "reversed": "The tough times are starting to ease up and support is coming through, or you're finally ready to accept the help that's been there all along. You're moving from survival mode toward stability."
+    }
+  },
+  "Six of Pentacles": {
+    "rws_traditional": {
+      "upright": "Generosity, charity, fair exchange of resources, or receiving help when needed; the balance of giving and receiving in action. Material resources flow between those who have and those who need in a spirit of justice.",
+      "reversed": "Inequality, unfair exchanges, strings attached to gifts, or power imbalances in financial relationships. Generosity becomes control or charity becomes degrading."
+    },
+    "thoth_crowley": {
+      "upright": "Success - the Moon in Taurus brings material achievement and the fulfillment of earthly desires through balanced exchange. This is prosperity shared, where abundance circulates and all parties benefit from fair dealing.",
+      "reversed": "Success breeds inequality; the flow of resources becomes unbalanced creating dependency or exploitation. Material achievement loses its sweetness when justice is absent from the exchange."
+    },
+    "jungian_psychological": {
+      "upright": "Integration of the giver and receiver archetypes; the self learns both roles in the dance of reciprocity. Healthy self-worth allows both gracious giving and humble receiving without shame or superiority.",
+      "reversed": "Shadow issues around worthiness distort the give-receive dynamic; either martyrdom or entitlement emerge. The self struggles with power dynamics inherent in material exchange."
+    },
+    "modern_intuitive": {
+      "upright": "You're either in a position to share your abundance generously or you're receiving help exactly when you need it - either way, resources are flowing fairly. Practice gratitude whether you're giving or receiving right now.",
+      "reversed": "Something's off in the exchange - there are strings attached, power trips happening, or the giving/receiving is out of balance. Watch for subtle manipulation disguised as generosity."
+    }
+  },
+  "Seven of Pentacles": {
+    "rws_traditional": {
+      "upright": "Pausing to assess progress, waiting for investments to mature, evaluating whether your efforts are bearing fruit. You've worked hard and now must decide whether to continue on this path or redirect your energy.",
+      "reversed": "Impatience with slow progress, abandoning projects prematurely, or discovering that your efforts have been misdirected. The harvest is disappointing or long-delayed."
+    },
+    "thoth_crowley": {
+      "upright": "Failure - Saturn in Taurus suggests that despite effort, material results are delayed or disappointing; the lesson of patience and perseverance. What appears as failure may be the necessary pause before ultimate success, or the wisdom to redirect energy.",
+      "reversed": "Failure becomes permanent through giving up too soon, or wisdom emerges about cutting losses on unproductive ventures. The lesson of timing and realistic assessment must be learned."
+    },
+    "jungian_psychological": {
+      "upright": "The psychological pause for self-assessment; the ego must integrate the fruits of labor and decide future direction. This reflection period is necessary for conscious choice rather than mindless continuation.",
+      "reversed": "Inability to assess progress realistically; either premature abandonment or stubborn persistence despite clear failure. The self avoids the difficult work of honest evaluation."
+    },
+    "modern_intuitive": {
+      "upright": "You're at a crossroads, taking stock of what you've built so far and asking the hard question: is this working? Trust this pause for reflection - sometimes the most productive thing is to stop and reassess before moving forward.",
+      "reversed": "You're either giving up right before the harvest or stubbornly watering dead plants. Be honest about whether you need more patience or whether it's time to cut your losses."
+    }
+  },
+  "Eight of Pentacles": {
+    "rws_traditional": {
+      "upright": "Dedicated craftsmanship, developing mastery through repetitive practice, apprenticeship and skill-building. You're committed to excellence and willing to do the detailed work required for true expertise.",
+      "reversed": "Lack of focus, poor workmanship, or unwillingness to put in the necessary practice for mastery. Cutting corners or becoming discouraged by the long road to expertise."
+    },
+    "thoth_crowley": {
+      "upright": "Prudence - the Sun in Virgo creates careful, methodical attention to material details and the patient accumulation of skill. This is wisdom applied to earthly matters, where modest consistent effort yields lasting results.",
+      "reversed": "Prudence becomes perfectionism or excessive caution that prevents progress; analysis paralysis in material matters. The careful approach degrades into nitpicking or fear of moving forward."
+    },
+    "jungian_psychological": {
+      "upright": "The individuation process applied to skill development; the self commits to conscious refinement of abilities. Through dedicated practice, raw potential transforms into genuine competence and self-mastery.",
+      "reversed": "Resistance to the discipline required for growth; the shadow side of entitlement or impatience emerges. The self seeks shortcuts or becomes discouraged by the demands of true mastery."
+    },
+    "modern_intuitive": {
+      "upright": "Head down, focused on your craft, putting in the hours to truly master your skills - this is the unsexy but essential work that builds expertise. Your dedication to quality and continuous improvement is your greatest asset right now.",
+      "reversed": "You're cutting corners, losing focus, or getting discouraged by how much there is to learn. Recommit to the fundamentals or acknowledge that your heart's not in this particular craft."
+    }
+  },
+  "Nine of Pentacles": {
+    "rws_traditional": {
+      "upright": "Self-sufficiency, material abundance through personal effort, enjoying the fruits of your labor in gracious independence. You've cultivated prosperity and can now savor refined pleasures and well-earned luxury.",
+      "reversed": "Financial dependence, loss of self-sufficiency, or discovering that material success hasn't brought fulfillment. The harvest is threatened or the fruits feel hollow."
+    },
+    "thoth_crowley": {
+      "upright": "Gain - Venus in Virgo combines beauty with practicality, creating material increase through refined discrimination. This is the garden in full bloom, where patient cultivation yields abundant harvest and gracious living.",
+      "reversed": "Gain acquired becomes isolating; material success breeds loneliness or separation from others. The fruits of labor fail to nourish the soul despite external abundance."
+    },
+    "jungian_psychological": {
+      "upright": "Individuation achieved in the material realm; the self has successfully integrated discipline and pleasure, work and reward. This is mature self-reliance where autonomy brings both pride and contentment.",
+      "reversed": "The shadow of independence emerges as isolation; self-sufficiency curdles into inability to receive or connect. Material success masks emotional or spiritual poverty."
+    },
+    "modern_intuitive": {
+      "upright": "You've worked hard and built something beautiful for yourself - now enjoy it without guilt or apology. This is about standing in your power, savoring your independence, and appreciating the life you've created through your own efforts.",
+      "reversed": "Your independence is threatened, or you're realizing that material success alone doesn't fill the void. Something's missing despite the outward abundance, or you're struggling to maintain your self-sufficiency."
+    }
+  },
+  "Ten of Pentacles": {
+    "rws_traditional": {
+      "upright": "Lasting wealth, family legacy, material security passed through generations, the culmination of prosperity. You've achieved enduring success that benefits not just yourself but your entire family or community.",
+      "reversed": "Family financial disputes, loss of inheritance, instability in home or business, or discovering that tradition has become oppressive. The legacy is threatened or burdensome."
+    },
+    "thoth_crowley": {
+      "upright": "Wealth - Mercury in Virgo creates the completion of material manifestation, where resources are systematically organized into lasting structures. This is the Tree of Life fully materialized, representing ultimate earthly attainment and established legacy.",
+      "reversed": "Wealth becomes burden; material abundance creates complications, conflicts over inheritance, or bondage to possessions. The completion becomes stagnation or the legacy becomes a cage."
+    },
+    "jungian_psychological": {
+      "upright": "Integration of personal achievement with ancestral legacy; the self recognizes its place in the ongoing family story. Material security provides foundation for future generations and honors those who came before.",
+      "reversed": "Ancestral shadow issues around money and inheritance; family patterns of scarcity or excess demand conscious examination. The weight of tradition restricts individual development."
+    },
+    "modern_intuitive": {
+      "upright": "This is about building something that lasts beyond your lifetime - true wealth that provides security for those you love and honors those who came before. You're thinking in terms of legacy, not just personal gain, and creating enduring structures.",
+      "reversed": "Family money drama is erupting, traditions feel suffocating, or the pursuit of legacy has become oppressive. Question whether you're honoring the past or being imprisoned by it."
+    }
+  },
+  "Page of Pentacles": {
+    "rws_traditional": {
+      "upright": "A studious messenger bringing practical opportunities, new learning in material subjects, or the beginning of a new financial venture. There's youthful enthusiasm for study, manifestation, and building tangible skills.",
+      "reversed": "Lack of follow-through on opportunities, procrastination, poor study habits, or impractical schemes. The student becomes distracted or the message about resources goes unheeded."
+    },
+    "thoth_crowley": {
+      "upright": "Princess of Disks - the earthy part of Earth, grounded in material reality with deep reverence for the physical world. She is pregnant with practical potential, embodying both the student of nature and the seedbed of material manifestation.",
+      "reversed": "The Princess becomes too immersed in matter, losing spiritual perspective; or conversely, fails to ground ideas in reality. Earthiness becomes either stagnation or impracticality."
+    },
+    "jungian_psychological": {
+      "upright": "The emerging consciousness of material responsibility; the young ego begins to engage seriously with earthly concerns. This is the archetype of the apprentice, eager to learn the ways of the physical world.",
+      "reversed": "Resistance to growing up and taking material responsibility; the puer aeternus refuses to engage with practical reality. Or conversely, premature burden of adult concerns crushes youthful exploration."
+    },
+    "modern_intuitive": {
+      "upright": "A new opportunity for learning or earning is coming your way - approach it with curiosity and dedication even if you're starting from square one. This is your chance to plant seeds for future prosperity through study and practical application.",
+      "reversed": "You're not taking the opportunity seriously, getting distracted by shiny objects, or approaching practical matters with unrealistic expectations. Ground your dreams in actual plans and follow through."
+    }
+  },
+  "Knight of Pentacles": {
+    "rws_traditional": {
+      "upright": "Methodical progress, responsible and dependable action, steady advancement toward material goals. This is the reliable worker who gets things done through persistence, though progress may be slow but certain.",
+      "reversed": "Stagnation, stubbornness, being stuck in routine, or irresponsible behavior regarding practical matters. The steady worker becomes either immobilized or unreliable."
+    },
+    "thoth_crowley": {
+      "upright": "Prince of Disks - the airy part of Earth, bringing intellectual clarity to material endeavors and practical implementation of ideas. He is the master of manifestation, turning concepts into concrete reality through systematic effort.",
+      "reversed": "The Prince's intellectual approach becomes overthinking that prevents action; paralysis by analysis in material matters. Or conversely, reckless implementation without proper planning."
+    },
+    "jungian_psychological": {
+      "upright": "The ego's capacity for sustained, conscious work toward tangible goals; integration of patience and persistence. This represents the mature ability to delay gratification and trust the process of gradual achievement.",
+      "reversed": "Either obsessive rigidity that prevents adaptation, or inability to commit to the sustained effort required for success. The shadow manifests as either stubbornness or irresponsibility."
+    },
+    "modern_intuitive": {
+      "upright": "Slow and steady wins the race - you're making reliable progress through consistent effort and responsible action. Trust the process even if results aren't flashy or immediate; your dedication will pay off.",
+      "reversed": "You've ground to a halt, become too rigid in your approach, or you're being unreliable when others are counting on you. Either shake things up or get back to basics and follow through."
+    }
+  },
+  "Queen of Pentacles": {
+    "rws_traditional": {
+      "upright": "Nurturing abundance, practical care for others, prosperity through grounded wisdom and generosity. She creates comfort and security, managing resources with both efficiency and warmth to support those in her care.",
+      "reversed": "Neglect of home or self, financial insecurity, or smothering others through material control. The nurturing becomes either absent or controlling through resources."
+    },
+    "thoth_crowley": {
+      "upright": "Queen of Disks - the watery part of Earth, bringing emotional depth to material matters and nurturing abundance for all. She is the throne of Earth itself, embodying fertile prosperity, practical magic, and the integration of physical and emotional security.",
+      "reversed": "The Queen's nurturing becomes possessive or neglectful; emotional needs distort practical judgment. Material comfort becomes either hoarding against scarcity or wasteful excess."
+    },
+    "jungian_psychological": {
+      "upright": "The mature feminine capacity to create sanctuary and sustain life through practical wisdom; integration of nurturing and abundance. This archetype embodies grounded self-care and generous provision for others from a place of fullness.",
+      "reversed": "The shadow mother emerges: either smothering control through material provision or neglectful absence. Worthiness issues manifest as inability to care for self or others properly."
+    },
+    "modern_intuitive": {
+      "upright": "You're creating abundance and comfort not just for yourself but for everyone in your sphere - your touch makes everything more nourishing and beautiful. Trust your practical wisdom and your generous heart to provide what's needed.",
+      "reversed": "You're either neglecting your own needs while caring for others, or using money and resources to control people. Find the balance between generous nurturing and healthy boundaries."
+    }
+  },
+  "King of Pentacles": {
+    "rws_traditional": {
+      "upright": "Mastery of the material realm, financial acumen, successful enterprise and established wealth through capable leadership. He is the benevolent ruler who has built an empire through wisdom, discipline, and practical know-how.",
+      "reversed": "Corruption, greed, misuse of power for material gain, or loss of wealth through poor judgment. The successful leader becomes either tyrannical or incompetent."
+    },
+    "thoth_crowley": {
+      "upright": "Knight of Disks - the fiery part of Earth, bringing dynamic energy to material mastery and leadership in worldly affairs. He is the master of manifestation in its most powerful form, wielding material force with intelligence and authority.",
+      "reversed": "The Knight's power becomes destructive; material mastery turns to exploitation or the empire crumbles through recklessness. Dynamic energy becomes either tyranny or chaos in the physical realm."
+    },
+    "jungian_psychological": {
+      "upright": "The mature masculine capacity for building and sustaining material structures; integration of power and responsibility. This archetype represents conscious stewardship of resources and the wisdom to create lasting prosperity for the collective.",
+      "reversed": "The shadow king emerges: either tyrannical control through wealth or abdication of material responsibility. Power corrupts or the weight of leadership becomes overwhelming."
+    },
+    "modern_intuitive": {
+      "upright": "You've got the Midas touch right now - your practical wisdom, leadership abilities, and financial savvy are all working together to build real wealth and security. Use your success to create opportunities for others while enjoying the fruits of your expertise.",
+      "reversed": "Power and money are corrupting your values, or your empire is crumbling because you've lost touch with what matters. Examine whether you're being a benevolent leader or a greedy tyrant."
+    }
   }
 }

@@ -8,7 +8,7 @@ A comprehensive interactive tarot reading application featuring beautiful ASCII 
 
 ### 🔮 Multiple Interpretation Systems
 
-Choose from **four different tarot interpretation traditions** for Major Arcana cards:
+Choose from **four different tarot interpretation traditions** for **all 78 cards** (22 Major Arcana + 56 Minor Arcana):
 
 1. **Rider-Waite-Smith (Traditional)** - Most popular and beginner-friendly
    - Story-based interpretations from card imagery
@@ -79,8 +79,8 @@ Follow the on-screen menu to:
 ## Data Files
 
 The application uses:
-- `cards.json` - Complete tarot deck data with ASCII art
-- `interpretations.json` - Multiple interpretation system database (22 Major Arcana cards)
+- `cards.json` - Complete tarot deck data with ASCII art (78 cards)
+- `interpretations.json` - Multiple interpretation system database (all 78 cards: 22 Major + 56 Minor Arcana)
 - `reading_history.json` - Your saved readings (auto-generated)
 - `daily_card.json` - Daily card persistence (auto-generated)
 
@@ -107,7 +107,7 @@ display_card(card, is_reversed, show_all_interpretations=True)
 
 ## Interpretation Systems
 
-The app includes **researched interpretations** for all 22 Major Arcana cards across four distinct traditions:
+The app includes **researched interpretations** for **all 78 tarot cards** (22 Major Arcana + 56 Minor Arcana) across four distinct traditions:
 
 - **Traditional (RWS)**: Based on Rider-Waite-Smith meanings, the most widely-used system
 - **Esoteric (Thoth)**: Based on Crowley's Thoth deck with Kabbalistic and alchemical symbolism

@@ -1,6 +1,6 @@
 # ASCII Tarot Reader
 
-A comprehensive interactive tarot reading application featuring beautiful ASCII art cards with detailed interpretations.
+A tarot reading application featuring beautiful ASCII art cards with detailed interpretations and semantic search capabilities.
 
 <img src='cards.gif' />
 

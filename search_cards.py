@@ -11,6 +11,10 @@ Usage:
     python3 search_cards.py --similar "The Fool"
     python3 search_cards.py --similar "The Fool" --reversed
 
+    # Display with ASCII art
+    python3 search_cards.py "new beginnings" --ascii
+    python3 search_cards.py --similar "The Fool" --art --top 3
+
     # JSON/YAML output
     python3 search_cards.py "transformation" --json
     python3 search_cards.py --similar "The Star" --yaml
@@ -284,7 +288,8 @@ def display_search_results(
     cards_data: List[Dict],
     output_format: Optional[str] = None,
     system: str = 'combined',
-    interpretations_data: Dict = None
+    interpretations_data: Dict = None,
+    show_art: bool = False
 ):
     """
     Display search results in the specified format.
@@ -295,6 +300,7 @@ def display_search_results(
         output_format: Output format ('json', 'yaml', or None for human-readable)
         system: Interpretation system used for search
         interpretations_data: Interpretation data for system-specific meanings
+        show_art: Whether to display ASCII art for cards (default: False)
     """
     # Handle structured output formats
     if output_format in ['json', 'yaml']:
@@ -339,7 +345,21 @@ def display_search_results(
             meaning = card['desc'] if position == 'upright' else card['rdesc']
 
         # Show brief meaning
-        print(f"   Meaning: {meaning[:100]}...")
+        if show_art:
+            # Full meaning when showing art
+            print(f"   Meaning: {meaning}")
+        else:
+            # Truncated meaning when not showing art
+            print(f"   Meaning: {meaning[:100]}...")
+
+        # Show ASCII art if requested
+        if show_art and card:
+            print()
+            if position == 'reversed' and 'reversed' in card:
+                print(card['reversed'])
+            else:
+                print(card['card'])
+            print()
 
 
 def interactive_search():
@@ -414,7 +434,7 @@ def interactive_search():
                     embeddings_data,
                     top_k=5
                 )
-                display_search_results(results, cards_data, system='combined', interpretations_data=interpretations_data)
+                display_search_results(results, cards_data, system='combined', interpretations_data=interpretations_data, show_art=False)
             except ValueError as e:
                 print(f"✗ Error: {e}")
 
@@ -429,7 +449,7 @@ def interactive_search():
                     client,
                     top_k=5
                 )
-                display_search_results(results, cards_data, system='combined', interpretations_data=interpretations_data)
+                display_search_results(results, cards_data, system='combined', interpretations_data=interpretations_data, show_art=False)
             except Exception as e:
                 print(f"✗ Error: {e}")
 
@@ -442,6 +462,7 @@ def main():
                '  %(prog)s "new beginnings"\n'
                '  %(prog)s --similar "The Fool"\n'
                '  %(prog)s --similar "The Tower" --reversed\n'
+               '  %(prog)s "transformation" --ascii --top 3\n'
                '  %(prog)s "transformation" --json\n'
                '  %(prog)s --similar "The Star" --yaml\n'
                '  %(prog)s --interactive',
@@ -496,6 +517,12 @@ def main():
         default='combined',
         metavar='SYSTEM',
         help='Filter by interpretation system: rws_traditional, thoth_crowley, jungian_psychological, modern_intuitive, combined (default: combined)'
+    )
+    parser.add_argument(
+        '--ascii', '--art',
+        action='store_true',
+        dest='show_art',
+        help='Display ASCII art for each card in results'
     )
 
     args = parser.parse_args()
@@ -563,7 +590,7 @@ def main():
                 exclude_same_card=not args.include_same_card,
                 system_filter=args.system
             )
-            display_search_results(results, cards_data, output_format, args.system, interpretations_data)
+            display_search_results(results, cards_data, output_format, args.system, interpretations_data, args.show_art)
         except ValueError as e:
             print(f"✗ Error: {e}", file=sys.stderr)
             sys.exit(1)
@@ -582,7 +609,7 @@ def main():
                 top_k=args.top,
                 system_filter=args.system
             )
-            display_search_results(results, cards_data, output_format, args.system, interpretations_data)
+            display_search_results(results, cards_data, output_format, args.system, interpretations_data, args.show_art)
         except Exception as e:
             print(f"✗ Error: {e}", file=sys.stderr)
             sys.exit(1)

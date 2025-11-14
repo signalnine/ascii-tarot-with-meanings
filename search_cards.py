@@ -1,0 +1,521 @@
+#!/usr/bin/env python3
+"""
+Search tarot cards using vector embeddings.
+Provides semantic search capabilities for finding related cards.
+
+Usage:
+    # Semantic search
+    python3 search_cards.py "new beginnings"
+
+    # Find similar cards
+    python3 search_cards.py --similar "The Fool"
+    python3 search_cards.py --similar "The Fool" --reversed
+
+    # JSON/YAML output
+    python3 search_cards.py "transformation" --json
+    python3 search_cards.py --similar "The Star" --yaml
+
+    # Interactive mode
+    python3 search_cards.py --interactive
+"""
+
+import json
+import os
+import sys
+import argparse
+import numpy as np
+from typing import List, Dict, Tuple, Optional
+from openai import OpenAI
+
+try:
+    import yaml
+    YAML_AVAILABLE = True
+except ImportError:
+    YAML_AVAILABLE = False
+
+
+# Configuration
+EMBEDDINGS_FILE = 'card_embeddings.json'
+CARDS_FILE = 'cards.json'
+
+
+def load_embeddings() -> List[Dict]:
+    """Load pre-generated embeddings from file"""
+    if not os.path.exists(EMBEDDINGS_FILE):
+        raise FileNotFoundError(
+            f"Embeddings file not found: {EMBEDDINGS_FILE}\n"
+            "Please run generate_embeddings.py first to create embeddings."
+        )
+
+    with open(EMBEDDINGS_FILE, 'r') as f:
+        return json.load(f)
+
+
+def load_cards() -> List[Dict]:
+    """Load card data"""
+    with open(CARDS_FILE, 'r') as f:
+        return json.load(f)
+
+
+def cosine_similarity(vec1: List[float], vec2: List[float]) -> float:
+    """
+    Calculate cosine similarity between two vectors.
+
+    Args:
+        vec1: First embedding vector
+        vec2: Second embedding vector
+
+    Returns:
+        Similarity score between -1 and 1 (1 = most similar)
+    """
+    vec1 = np.array(vec1)
+    vec2 = np.array(vec2)
+
+    dot_product = np.dot(vec1, vec2)
+    norm1 = np.linalg.norm(vec1)
+    norm2 = np.linalg.norm(vec2)
+
+    if norm1 == 0 or norm2 == 0:
+        return 0.0
+
+    return dot_product / (norm1 * norm2)
+
+
+def get_query_embedding(client: OpenAI, query: str) -> List[float]:
+    """
+    Generate embedding for a search query.
+
+    Args:
+        client: OpenAI client instance
+        query: Search query text
+
+    Returns:
+        Embedding vector
+    """
+    response = client.embeddings.create(
+        model="text-embedding-3-small",
+        input=query
+    )
+    return response.data[0].embedding
+
+
+def search_cards(
+    query: str,
+    embeddings_data: List[Dict],
+    client: OpenAI,
+    top_k: int = 5,
+    position_filter: str = None
+) -> List[Tuple[str, str, float]]:
+    """
+    Search for cards semantically similar to a query.
+
+    Args:
+        query: Search query (e.g., "new beginnings", "letting go")
+        embeddings_data: List of card embeddings
+        client: OpenAI client
+        top_k: Number of results to return
+        position_filter: Filter by 'upright' or 'reversed' (None for both)
+
+    Returns:
+        List of (card_name, position, similarity_score) tuples
+    """
+    # Get query embedding
+    query_embedding = get_query_embedding(client, query)
+
+    # Calculate similarities
+    similarities = []
+    for card_data in embeddings_data:
+        # Apply position filter if specified
+        if position_filter and card_data['position'] != position_filter:
+            continue
+
+        similarity = cosine_similarity(query_embedding, card_data['embedding'])
+        similarities.append((
+            card_data['card_name'],
+            card_data['position'],
+            similarity
+        ))
+
+    # Sort by similarity (highest first)
+    similarities.sort(key=lambda x: x[2], reverse=True)
+
+    return similarities[:top_k]
+
+
+def find_similar_cards(
+    card_name: str,
+    position: str,
+    embeddings_data: List[Dict],
+    top_k: int = 5,
+    exclude_self: bool = True,
+    exclude_same_card: bool = True
+) -> List[Tuple[str, str, float]]:
+    """
+    Find cards similar to a given card.
+
+    Args:
+        card_name: Name of the card to find similar cards for
+        position: Position of the card ('upright' or 'reversed')
+        embeddings_data: List of card embeddings
+        top_k: Number of results to return
+        exclude_self: Whether to exclude the exact same card and position
+        exclude_same_card: Whether to exclude the same card in both positions (default True)
+
+    Returns:
+        List of (card_name, position, similarity_score) tuples
+    """
+    # Find the target card's embedding
+    target_embedding = None
+    for card_data in embeddings_data:
+        if (card_data['card_name'] == card_name and
+            card_data['position'] == position):
+            target_embedding = card_data['embedding']
+            break
+
+    if target_embedding is None:
+        raise ValueError(f"Card not found: {card_name} ({position})")
+
+    # Calculate similarities
+    similarities = []
+    for card_data in embeddings_data:
+        # Exclude same card (both positions) if requested
+        if exclude_same_card and card_data['card_name'] == card_name:
+            continue
+
+        # Exclude exact match if requested (when exclude_same_card is False)
+        if not exclude_same_card and exclude_self and (
+            card_data['card_name'] == card_name and
+            card_data['position'] == position
+        ):
+            continue
+
+        similarity = cosine_similarity(target_embedding, card_data['embedding'])
+        similarities.append((
+            card_data['card_name'],
+            card_data['position'],
+            similarity
+        ))
+
+    # Sort by similarity (highest first)
+    similarities.sort(key=lambda x: x[2], reverse=True)
+
+    return similarities[:top_k]
+
+
+def format_results_as_data(results: List[Tuple[str, str, float]], cards_data: List[Dict]) -> List[Dict]:
+    """
+    Format search results as structured data (for JSON/YAML output).
+
+    Args:
+        results: List of (card_name, position, similarity_score) tuples
+        cards_data: Card data for additional info
+
+    Returns:
+        List of dictionaries with card information
+    """
+    # Create card lookup
+    card_lookup = {card['name']: card for card in cards_data}
+
+    formatted_results = []
+    for card_name, position, score in results:
+        card = card_lookup.get(card_name)
+        if not card:
+            continue
+
+        result_entry = {
+            'card_name': card_name,
+            'position': position,
+            'similarity': float(score),
+            'meaning': card['desc'] if position == 'upright' else card['rdesc']
+        }
+        formatted_results.append(result_entry)
+
+    return formatted_results
+
+
+def display_search_results(
+    results: List[Tuple[str, str, float]],
+    cards_data: List[Dict],
+    output_format: Optional[str] = None
+):
+    """
+    Display search results in the specified format.
+
+    Args:
+        results: List of (card_name, position, similarity_score) tuples
+        cards_data: Card data for additional info
+        output_format: Output format ('json', 'yaml', or None for human-readable)
+    """
+    # Handle structured output formats
+    if output_format in ['json', 'yaml']:
+        formatted_data = format_results_as_data(results, cards_data)
+
+        if output_format == 'json':
+            print(json.dumps(formatted_data, indent=2))
+        elif output_format == 'yaml':
+            if not YAML_AVAILABLE:
+                print("Error: pyyaml not installed. Install with: pip install pyyaml", file=sys.stderr)
+                sys.exit(1)
+            print(yaml.dump(formatted_data, default_flow_style=False, sort_keys=False))
+        return
+
+    # Human-readable format (default)
+    # Create card lookup
+    card_lookup = {card['name']: card for card in cards_data}
+
+    print("\n" + "=" * 70)
+    print("SEARCH RESULTS")
+    print("=" * 70)
+
+    for i, (card_name, position, score) in enumerate(results, 1):
+        card = card_lookup.get(card_name)
+        if not card:
+            continue
+
+        print(f"\n{i}. {card_name} ({position.upper()})")
+        print(f"   Similarity: {score:.4f}")
+
+        # Show brief meaning
+        if position == 'upright':
+            print(f"   Meaning: {card['desc'][:100]}...")
+        else:
+            print(f"   Meaning: {card['rdesc'][:100]}...")
+
+
+def interactive_search():
+    """Interactive search interface"""
+    # Check for API key
+    api_key = os.getenv('OPENAI_API_KEY')
+    if not api_key:
+        print("Error: OPENAI_API_KEY environment variable not set")
+        print("Please set it with: export OPENAI_API_KEY='your-key-here'")
+        return
+
+    # Initialize client
+    client = OpenAI(api_key=api_key)
+
+    # Load data
+    print("Loading embeddings and card data...")
+    try:
+        embeddings_data = load_embeddings()
+        cards_data = load_cards()
+        print(f"✓ Loaded {len(embeddings_data)} embeddings for {len(cards_data)} cards")
+    except FileNotFoundError as e:
+        print(f"Error: {e}")
+        return
+
+    print("\n" + "=" * 70)
+    print("TAROT CARD SEMANTIC SEARCH")
+    print("=" * 70)
+    print("\nSearch for cards by theme, concept, or feeling.")
+    print("Examples: 'new beginnings', 'letting go', 'inner strength', 'confusion'")
+    print("\nCommands:")
+    print("  /similar <card name>  - Find cards similar to a specific card")
+    print("  /quit                 - Exit")
+    print("=" * 70)
+
+    while True:
+        print()
+        query = input("Search query: ").strip()
+
+        if not query:
+            continue
+
+        if query.lower() in ['/quit', '/exit', '/q']:
+            print("\nGoodbye!")
+            break
+
+        # Handle /similar command
+        if query.lower().startswith('/similar '):
+            card_name = query[9:].strip()
+
+            # Find the card
+            card = None
+            for c in cards_data:
+                if c['name'].lower() == card_name.lower():
+                    card = c
+                    break
+
+            if not card:
+                print(f"✗ Card not found: {card_name}")
+                continue
+
+            # Ask for position
+            pos_input = input("Position (u/r, default: u): ").strip().lower()
+            position = 'reversed' if pos_input == 'r' else 'upright'
+
+            print(f"\nFinding cards similar to '{card['name']}' ({position})...")
+
+            try:
+                results = find_similar_cards(
+                    card['name'],
+                    position,
+                    embeddings_data,
+                    top_k=5
+                )
+                display_search_results(results, cards_data)
+            except ValueError as e:
+                print(f"✗ Error: {e}")
+
+        else:
+            # Normal semantic search
+            print(f"\nSearching for: '{query}'...")
+
+            try:
+                results = search_cards(
+                    query,
+                    embeddings_data,
+                    client,
+                    top_k=5
+                )
+                display_search_results(results, cards_data)
+            except Exception as e:
+                print(f"✗ Error: {e}")
+
+
+def main():
+    """Main execution with CLI argument support"""
+    parser = argparse.ArgumentParser(
+        description='Search tarot cards using vector embeddings',
+        epilog='Examples:\n'
+               '  %(prog)s "new beginnings"\n'
+               '  %(prog)s --similar "The Fool"\n'
+               '  %(prog)s --similar "The Tower" --reversed\n'
+               '  %(prog)s "transformation" --json\n'
+               '  %(prog)s --similar "The Star" --yaml\n'
+               '  %(prog)s --interactive',
+        formatter_class=argparse.RawDescriptionHelpFormatter
+    )
+
+    parser.add_argument(
+        'query',
+        nargs='?',
+        help='Search query for semantic search (e.g., "new beginnings", "letting go")'
+    )
+    parser.add_argument(
+        '--similar', '-s',
+        metavar='CARD',
+        help='Find cards similar to the specified card'
+    )
+    parser.add_argument(
+        '--reversed', '-r',
+        action='store_true',
+        help='Use reversed position (for --similar mode)'
+    )
+    parser.add_argument(
+        '--include-same-card',
+        action='store_true',
+        help='Include same card in opposite position in similar results'
+    )
+    parser.add_argument(
+        '--top', '-k',
+        type=int,
+        default=1,
+        metavar='N',
+        help='Number of results to return (default: 1)'
+    )
+    parser.add_argument(
+        '--interactive', '-i',
+        action='store_true',
+        help='Launch interactive search mode'
+    )
+    parser.add_argument(
+        '--json',
+        action='store_true',
+        help='Output results in JSON format'
+    )
+    parser.add_argument(
+        '--yaml',
+        action='store_true',
+        help='Output results in YAML format'
+    )
+
+    args = parser.parse_args()
+
+    # Determine output format
+    output_format = None
+    if args.json:
+        output_format = 'json'
+    elif args.yaml:
+        output_format = 'yaml'
+
+    # If no arguments or interactive flag, run interactive mode
+    if args.interactive or (not args.query and not args.similar):
+        interactive_search()
+        return
+
+    # Check for API key
+    api_key = os.getenv('OPENAI_API_KEY')
+    if not api_key:
+        print("Error: OPENAI_API_KEY environment variable not set")
+        print("Please set it with: export OPENAI_API_KEY='your-key-here'")
+        sys.exit(1)
+
+    # Initialize client
+    client = OpenAI(api_key=api_key)
+
+    # Load data
+    try:
+        embeddings_data = load_embeddings()
+        cards_data = load_cards()
+    except FileNotFoundError as e:
+        print(f"Error: {e}")
+        sys.exit(1)
+
+    # Handle --similar mode
+    if args.similar:
+        # Find the card
+        card = None
+        for c in cards_data:
+            if c['name'].lower() == args.similar.lower():
+                card = c
+                break
+
+        if not card:
+            print(f"✗ Card not found: {args.similar}")
+            print("\nAvailable cards:")
+            for c in cards_data[:10]:  # Show first 10 as examples
+                print(f"  - {c['name']}")
+            print("  ...")
+            sys.exit(1)
+
+        position = 'reversed' if args.reversed else 'upright'
+
+        # Only show status message in human-readable mode
+        if not output_format:
+            print(f"Finding cards similar to '{card['name']}' ({position})...")
+
+        try:
+            results = find_similar_cards(
+                card['name'],
+                position,
+                embeddings_data,
+                top_k=args.top,
+                exclude_same_card=not args.include_same_card
+            )
+            display_search_results(results, cards_data, output_format)
+        except ValueError as e:
+            print(f"✗ Error: {e}", file=sys.stderr)
+            sys.exit(1)
+
+    # Handle semantic search mode
+    elif args.query:
+        # Only show status message in human-readable mode
+        if not output_format:
+            print(f"Searching for: '{args.query}'...")
+
+        try:
+            results = search_cards(
+                args.query,
+                embeddings_data,
+                client,
+                top_k=args.top
+            )
+            display_search_results(results, cards_data, output_format)
+        except Exception as e:
+            print(f"✗ Error: {e}", file=sys.stderr)
+            sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()

@@ -72,9 +72,6 @@ def display_card(card: Dict, is_reversed: bool = False, show_all_interpretations
         print(f"Meaning: {card['desc']}")
         print(f"\n{card['card']}")
 
-    if 'cbd_desc' in card:
-        print(f"\nAdditional Interpretation: {card['cbd_desc']}")
-
     # Show interpretations from different systems
     if card['name'] in interpretations_db:
         if show_all_interpretations:
@@ -113,8 +110,7 @@ def search_by_keyword(keyword: str):
     for card in tarot_deck:
         if (keyword_lower in card['name'].lower() or
             keyword_lower in card['desc'].lower() or
-            keyword_lower in card['rdesc'].lower() or
-            keyword_lower in card.get('cbd_desc', '').lower()):
+            keyword_lower in card['rdesc'].lower()):
             matching_cards.append(card)
 
     if matching_cards:

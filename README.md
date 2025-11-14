@@ -57,12 +57,23 @@ Choose from **four different tarot interpretation traditions** for **all 78 card
 - **List All Cards** - View complete deck organized by arcana
 - **Filter by Arcana** - View only Major or Minor Arcana cards
 
+### 🔮 Semantic Search with Vector Embeddings (New!)
+- **Vector Embeddings** - Each card has embeddings generated from all 4 interpretation systems
+- **Semantic Search** - Find cards by theme, concept, or feeling (e.g., "new beginnings", "letting go")
+- **Similar Cards** - Discover cards related to any card in the deck
+- **Multiple Output Formats** - Get results as human-readable text, JSON, or YAML
+- **Command-Line Interface** - Scriptable and integrable with other tools
+
+See [EMBEDDINGS.md](EMBEDDINGS.md) for detailed usage.
+
 ### 📚 Reading History
 - **Save Readings** - Save any reading to your personal history
 - **View History** - Review your last 10 saved readings
 - **Timestamped Records** - Each reading is saved with date and time
 
 ## Usage
+
+### Interactive Tarot Reader
 
 Run the interactive menu:
 
@@ -76,11 +87,32 @@ Follow the on-screen menu to:
 3. Save readings to history
 4. Search and explore the deck
 
+### Semantic Card Search
+
+Search for cards by meaning, theme, or concept:
+
+```bash
+# Find cards related to "new beginnings"
+python3 search_cards.py "new beginnings"
+
+# Find cards similar to The Fool
+python3 search_cards.py --similar "The Fool"
+
+# Get results in JSON format
+python3 search_cards.py "transformation" --json
+
+# Get multiple results
+python3 search_cards.py "love and relationships" --top 5 --yaml
+```
+
+See [EMBEDDINGS.md](EMBEDDINGS.md) for complete documentation.
+
 ## Data Files
 
 The application uses:
 - `cards.json` - Complete tarot deck data with ASCII art (78 cards)
 - `interpretations.json` - Multiple interpretation system database (all 78 cards: 22 Major + 56 Minor Arcana)
+- `card_embeddings.json` - Vector embeddings for semantic search (156 embeddings: 78 cards × 2 positions)
 - `reading_history.json` - Your saved readings (auto-generated)
 - `daily_card.json` - Daily card persistence (auto-generated)
 
@@ -118,8 +150,23 @@ Each system offers unique insights - you can stick with one or explore all persp
 
 ## Requirements
 
+### Interactive Tarot Reader
 - Python 3.6+
 - No external dependencies required
+
+### Semantic Search (Optional)
+To use the AI-powered semantic search features:
+
+```bash
+pip install -r requirements.txt
+```
+
+Requirements:
+- Python 3.8+
+- openai>=1.0.0 (for embedding generation and search)
+- numpy>=1.24.0 (for similarity calculations)
+- pyyaml>=6.0 (for YAML output format)
+- pytest>=7.0.0 (for running tests)
 
 ## Card Structure
 
@@ -127,7 +174,6 @@ Each card in the JSON deck includes:
 - `name` - Card name
 - `desc` - Upright meaning
 - `rdesc` - Reversed meaning
-- `cbd_desc` - Additional interpretation context
 - `card` - ASCII art (upright)
 - `reversed` - ASCII art (reversed)
 
